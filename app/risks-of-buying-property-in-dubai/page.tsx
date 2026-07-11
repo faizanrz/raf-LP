@@ -9,9 +9,9 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "The Risks of Buying Property in Dubai | An Honest Assessment for UK Buyers",
+  title: "The Risks of Buying Property in Dubai | And How UK Buyers Manage Them",
   description:
-    "Oversupply, delivery risk, service charges, liquidity, and what you still owe HMRC. The case against Dubai property, written by a broker who will tell you when not to buy.",
+    "Oversupply, delivery delays, liquidity, service charges and HMRC. The real problems UK buyers hit in Dubai, and how a DLD licensed broker handles each one.",
 };
 
 /*
@@ -20,31 +20,41 @@ export const metadata: Metadata = {
   - Broker names, photographs and RERA BRN numbers in "If you still want to buy"
   - DLD licence and RERA numbers (lib/site.ts)
   HARD RULES on this page: no inventory, no prices, no property photography,
-  no project names. Risk sections end without reassurance.
+  no project names. Each section ends on RAF's mechanism, never on the bare
+  problem, and never on empty reassurance.
 */
 
 const faq = [
   {
-    q: "Is Dubai property oversupplied?",
-    a: "Around 120,000 new homes are expected to complete across Dubai in 2026. Supply on that scale puts pressure on rents and resale prices, concentrated in volume apartment districts. Prime areas with constrained land behave differently from volume communities in emerging districts.",
+    q: "Is there an oversupply risk in Dubai property?",
+    a: "Around 120,000 new homes are expected to complete across Dubai in 2026, concentrated in volume apartment districts with deep off plan pipelines. Prime areas with constrained land behave differently. The management is district level: before shortlisting, check the three year handover pipeline for the specific district, which a licensed broker can produce.",
   },
   {
     q: "What happens if a Dubai off plan project is delayed or cancelled?",
-    a: "Off plan payments sit in a DLD regulated escrow account released against verified construction progress. Escrow protects staged capital against misappropriation. It does not guarantee the handover date, the build quality, or the market value of the finished property.",
+    a: "Off plan payments sit in a DLD regulated escrow account released against verified construction progress. Escrow protects staged capital against misappropriation, not the handover date, build quality or finished value. The management is developer due diligence before committing: prior projects delivered, average delay against announced dates, comparable scale, and a DLD registered escrow account.",
   },
   {
     q: "How quickly can you sell a Dubai property?",
-    a: "Acquisition costs run to 6% to 8% of the purchase price, so a sale inside two years rarely recovers entry costs through capital growth alone. Dubai suits a minimum three year horizon, and time to sale lengthens materially in a soft market.",
+    a: "Acquisition costs run to 6% to 8% of the purchase price, so a sale inside two years rarely recovers entry costs through growth alone. Dubai suits a three year minimum horizon. A competent broker sets that expectation before purchase and recommends waiting where a buyer's timeline is shorter.",
   },
   {
     q: "Do UK residents pay UK tax on Dubai property?",
-    a: "Yes. A UK resident pays UK tax on worldwide income on the arising basis, so Dubai rental income is declarable to HMRC. From April 2025 UK inheritance tax is assessed on a residence basis, and a UK resident's Dubai property may fall within the UK IHT estate.",
+    a: "Yes. A UK resident pays UK tax on worldwide income on the arising basis, so Dubai rental income is declarable to HMRC, and from April 2025 UK inheritance tax is assessed on a residence basis. Take independent UK tax advice before buying, and keep full transaction records for self assessment.",
   },
   {
     q: "Are guaranteed rental returns in Dubai real?",
-    a: "A guaranteed rental return is a fixed payment from the developer or seller for a defined period, usually funded from an inflated purchase price. It is not a yield. When the guarantee ends, the property earns whatever the market pays, which may be materially less.",
+    a: "A guaranteed rental return is a fixed payment from the developer or seller for a defined period, usually funded from an inflated purchase price. It is not a yield. When the guarantee ends, the property earns whatever the market pays. Identify one by a return promised by the seller rather than evidenced by the market, and a price above comparable units in the same building.",
   },
 ];
+
+function Mechanism({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mt-7 border-l-2 border-gold/70 bg-panel/70 py-5 pl-6 pr-5">
+      <p className="text-[0.7rem] uppercase tracking-[0.22em] text-gold">How RAF manages it</p>
+      <div className="mt-2.5 space-y-4 text-[0.98rem] leading-relaxed text-cream/85">{children}</div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -72,15 +82,17 @@ export default function Page() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(198,166,106,0.07),transparent_55%)]" />
         <div className="relative mx-auto w-full max-w-4xl px-6 pb-20 pt-32 lg:px-8">
           <Reveal>
-            <p className="kicker">An honest assessment for UK buyers</p>
+            <p className="kicker">The real problems, and how they are handled</p>
             <h1 className="display mt-6 text-5xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
               The Risks of Buying Property in Dubai
             </h1>
             <div className="gold-rule mt-8" />
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-cream/85">
-              This page is the case against, set out properly, by a licensed broker. Read it
-              and you will proceed, if you proceed, with better information than you arrived
-              with. Some readers should not buy in Dubai at all. This page will tell you so.
+              Every property market has real problems, and Dubai&apos;s are specific and
+              knowable. This page sets out the ones UK buyers actually hit, and how a licensed
+              broker manages each one. Read it and you will know what to check, what to ask,
+              and when the honest answer is to wait. Some readers should not buy in Dubai, and
+              this page will say so. The rest should buy with their eyes open, and this is how.
             </p>
           </Reveal>
         </div>
@@ -105,24 +117,29 @@ export default function Page() {
                 The pressure does not land evenly. It concentrates where the cranes are:
                 volume apartment districts with deep off plan pipelines, sold heavily to
                 investors who will all be seeking tenants in the same quarter. Prime locations
-                with constrained land, established communities where nothing new can be built,
-                and stock from developers with delivery records behave differently, because
-                their supply is fixed while the city&apos;s demand keeps arriving.
+                with constrained land and established communities where nothing new can be
+                built behave differently, because their supply is fixed while the city&apos;s
+                demand keeps arriving.
               </p>
               <p>
                 If the unit you are considering competes with 5,000 identical units handing
                 over in the same district in the same year, its rent and its resale price are
                 set by that fact, not by the brochure.
               </p>
-              <p>
-                The check is straightforward and almost nobody does it. Before you commit,
-                ask for the handover pipeline in the specific district for the next three
-                years: how many units, from which developers, at what price points. The data
-                exists, and any broker worth the commission can produce it. If the answer is a
-                large number and the seller has not mentioned it, you have learned something
-                about both the district and the seller.
-              </p>
             </div>
+            <Mechanism>
+              <p>
+                Before we put a unit in front of a UK buyer, we pull the three year handover
+                pipeline for that specific district: how many units, from which developers, at
+                what price points. We steer toward stock with constrained supply and away from
+                districts about to flood. The oversupply is real, and it is exactly why the
+                pipeline check happens before the shortlist, not after. The{" "}
+                <a href="/dubai-villas-for-sale/" className="text-gold underline decoration-gold/40 underline-offset-4 hover:text-gold-bright">
+                  community comparison on our villas page
+                </a>{" "}
+                shows the established against emerging trade this check feeds.
+              </p>
+            </Mechanism>
           </Reveal>
         </section>
 
@@ -145,30 +162,27 @@ export default function Page() {
                 date. It does not guarantee the build quality. It does not guarantee the
                 market value of the finished asset.
               </p>
-              <p>Before committing a deposit, check the developer the way a lender would:</p>
-              <ul className="space-y-2.5">
-                {[
-                  "Prior projects actually delivered, visited where possible",
-                  "Average delay against announced handover dates on those projects",
-                  "Whether they have completed at comparable scale, in this asset class",
-                  "Whether the project's escrow account is registered with the DLD",
-                ].map((t) => (
-                  <li key={t} className="flex gap-3">
-                    <span className="mt-3 h-px w-4 shrink-0 bg-gold" />
-                    {t}
-                  </li>
-                ))}
-              </ul>
               <p>
                 Where a project is formally cancelled, RERA winds it up and buyers are repaid
                 from the escrow account. The mechanism works, and it can still take years,
                 during which the capital earns nothing and buys nothing.
               </p>
-              <p>
-                A first time developer, or a developer whose track record sits entirely in a
-                different asset class, carries more risk than the marketing suggests.
-              </p>
             </div>
+            <Mechanism>
+              <p>
+                We run the developer check you would struggle to run alone: prior projects
+                actually delivered and visited, average delay against announced handover
+                dates, whether the developer has completed at this scale in this asset class,
+                and whether the project&apos;s escrow account is registered with the DLD.
+                First time developers and cross asset class track records get flagged, not
+                hidden. The risk is why the due diligence is a line item, not an afterthought.
+                The escrow system and off plan mechanics are set out in full in{" "}
+                <a href="/buying-property-in-dubai-from-uk/" className="text-gold underline decoration-gold/40 underline-offset-4 hover:text-gold-bright">
+                  our guide to buying from the UK
+                </a>
+                .
+              </p>
+            </Mechanism>
           </Reveal>
         </section>
 
@@ -188,14 +202,8 @@ export default function Page() {
               <p>
                 Time to sale is the other half of liquidity. In a strong market, well priced
                 stock sells in weeks. In a soft market, months, and the first offer often
-                arrives below asking. The buyer pool for a specific villa in a specific
-                emerging community is smaller than the pool for a central apartment, which
-                cuts both ways: less competition when you buy, less demand when you sell.
-              </p>
-              <p>
-                Off plan positions are less liquid still. Contracts can usually be assigned to
-                another buyer, but developers commonly block resale until 30% to 40% of the
-                price has been paid, and charge a fee for the assignment. In a soft market the
+                arrives below asking. Off plan positions are less liquid still: developers
+                commonly block resale until 30% to 40% of the price has been paid, and the
                 pool of buyers for a part paid contract on an unbuilt unit is the thinnest
                 corner of the whole market.
               </p>
@@ -204,6 +212,18 @@ export default function Page() {
                 property in Dubai is the wrong place for it.
               </p>
             </div>
+            <Mechanism>
+              <p>
+                We set the horizon expectation before purchase, and we price the realistic
+                exit rather than the hopeful one. Where a buyer&apos;s timeline is short, we
+                say so and recommend waiting, or a more liquid segment: the{" "}
+                <a href="/dubai-villas-for-sale/" className="text-gold underline decoration-gold/40 underline-offset-4 hover:text-gold-bright">
+                  established communities with active resale markets
+                </a>{" "}
+                trade at higher entry precisely because they exit faster. The liquidity limit
+                is why the horizon conversation happens on the first call, not at resale.
+              </p>
+            </Mechanism>
           </Reveal>
         </section>
 
@@ -232,11 +252,21 @@ export default function Page() {
                   </li>
                 ))}
               </ul>
-              <p>
-                Take independent advice from a UK tax adviser before you buy. RAF is a broker,
-                and a broker&apos;s tax opinion is worth what you paid for it.
-              </p>
             </div>
+            <Mechanism>
+              <p>
+                Our role is to make sure you know all of this before you buy, not after, and
+                to point you to a UK tax adviser for your own position. We keep the
+                transaction records a UK buyer needs for self assessment: purchase costs,
+                rental statements, service charge invoices and disposal figures. RAF is a
+                broker, not a tax adviser, and any broker claiming otherwise should be treated
+                with suspicion. The full fee and tax breakdown for UK buyers sits in{" "}
+                <a href="/buying-property-in-dubai-from-uk/" className="text-gold underline decoration-gold/40 underline-offset-4 hover:text-gold-bright">
+                  the buying guide
+                </a>
+                .
+              </p>
+            </Mechanism>
           </Reveal>
         </section>
 
@@ -300,11 +330,18 @@ export default function Page() {
               </div>
               <p>
                 The deductions above are illustrative and vary by building and community,
-                which is exactly the point. Ask for the actual service charge schedule and the
-                actual achieved rents on any unit you are shown, and do this arithmetic before
-                you commit, not after.
+                which is exactly the point.
               </p>
             </div>
+            <Mechanism>
+              <p>
+                We obtain the actual service charge schedule and the actual achieved rents on
+                any unit we show you, and we run this net calculation with you before
+                commitment, not after. &quot;Show me achieved rents, not projections&quot; is
+                the single most useful sentence a buyer can say to any broker. We expect to be
+                asked, and we have the numbers ready.
+              </p>
+            </Mechanism>
           </Reveal>
         </section>
 
@@ -331,7 +368,8 @@ export default function Page() {
                 RAF does not sell guaranteed return products. You can identify one in the
                 wild: a return promised by the seller rather than evidenced by the market, a
                 price above comparable units in the same building, and a contract in which the
-                payment obligation ends precisely when the market takes over.
+                payment obligation ends precisely when the market takes over. Walk away from
+                all three at once.
               </p>
             </div>
           </Reveal>
@@ -356,35 +394,48 @@ export default function Page() {
                 five year hold, the currency move can be larger than the property&apos;s
                 entire net rental return, in either direction.
               </p>
-              <p>
-                The exposure is manageable, but only deliberately. Staged off plan payments
-                due years from now can be fixed with forward contracts through a currency
-                broker, and sale proceeds can be converted on a plan rather than on the day
-                the transfer happens to complete. What is not manageable is pretending the
-                position does not exist.
-              </p>
             </div>
+            <Mechanism>
+              <p>
+                The exposure is manageable, but only deliberately. We flag where forward
+                contracts through a currency broker can fix staged off plan payments due years
+                out, and where sale proceeds can be converted on a plan rather than on
+                whatever day the transfer happens to complete. Currency is not a reason not to
+                buy. It is a variable to manage on purpose rather than ignore.
+              </p>
+            </Mechanism>
           </Reveal>
         </section>
 
-        {/* 08 Wrong decision */}
+        {/* 08 Who we tell to wait */}
         <section className="py-20">
           <Reveal>
             <p className="kicker">08 · The honest filter</p>
-            <h2 className="display mt-4 text-3xl sm:text-4xl">When Dubai is the wrong decision</h2>
-            <p className="mt-7 text-[1.02rem] text-muted">Do not buy property in Dubai with:</p>
-            <ul className="mt-6 space-y-4">
+            <h2 className="display mt-4 text-3xl sm:text-4xl">Who we tell to wait</h2>
+            <p className="mt-7 max-w-2xl text-[1.02rem] leading-relaxed text-muted">
+              We have told buyers to wait, to buy elsewhere, and occasionally not to buy at
+              all. That advice costs us a commission and earns us the next three clients.
+              Here is who we tell to wait:
+            </p>
+            <ul className="mt-8 space-y-4">
               {[
-                "A horizon shorter than three years",
-                "Any requirement to access the capital at short notice",
-                "A need to borrow above 60% loan to value, which non residents cannot do",
-                "A plan built on projected rental figures rather than actual, achieved rents in the same building or community",
-                "A reliance on the property's income to service UK obligations before handover",
-                "A Golden Visa as the primary reason to buy, rather than a consequence of buying something worth owning",
+                <>A horizon shorter than three years</>,
+                <>Any need to access the capital at short notice</>,
+                <>A need to borrow above 60% loan to value, which non residents cannot do</>,
+                <>A plan built on projected rents rather than achieved ones</>,
+                <>A reliance on pre handover income to service UK obligations</>,
+                <>
+                  A{" "}
+                  <a href="/buying-property-in-dubai-from-uk/" className="text-gold underline decoration-gold/40 underline-offset-4 hover:text-gold-bright">
+                    Golden Visa
+                  </a>{" "}
+                  as the reason to buy, rather than a consequence of buying something worth
+                  owning
+                </>,
               ].map((t, i) => (
-                <li key={t} className="flex gap-5 border-b border-line pb-4 text-[1.02rem] text-cream/90">
+                <li key={i} className="flex gap-5 border-b border-line pb-4 text-[1.02rem] text-cream/90">
                   <span className="display text-xl text-gold/70">{String(i + 1).padStart(2, "0")}</span>
-                  {t}
+                  <span>{t}</span>
                 </li>
               ))}
             </ul>
@@ -404,9 +455,8 @@ export default function Page() {
                 licensed broker&apos;s actual job: verify the developer&apos;s escrow
                 registration before you pay a dirham, pull the community&apos;s real service
                 charge history rather than the estimate, obtain achieved rents rather than
-                projected ones, and advise against the purchase where the numbers do not work.
-                We have told buyers to wait, and to buy elsewhere, and occasionally to not buy
-                at all. That advice costs us a commission and earns us the next three clients.
+                projected ones, and advise against the purchase where the numbers do not
+                work. That is the service. The properties are the easy part.
               </p>
             </div>
             {/* PLACEHOLDER: real broker names, photographs and BRN numbers from RAF */}
