@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
+import LeadNudgeScript from "@/components/LeadNudgeScript";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -28,7 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" className={`${cormorant.variable} ${jost.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <LeadNudgeScript />
+      </body>
     </html>
   );
 }

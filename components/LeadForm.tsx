@@ -123,6 +123,16 @@ export default function LeadForm({ buttonLabel, formName, showBudget = true }: P
               </label>
             ))}
           </div>
+          {/* Mirror for lead-capture scripts that skip radio inputs. Not visible, not focusable. */}
+          <input
+            type="text"
+            name="budget"
+            value={budget}
+            readOnly
+            tabIndex={-1}
+            aria-hidden="true"
+            className="sr-only"
+          />
         </fieldset>
       )}
 
