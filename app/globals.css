@@ -1,26 +1,220 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #0a0a0d;
+  --ink-2: #101016;
+  --panel: #14141b;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-gold: rgba(198, 166, 106, 0.35);
+  --text: #eae5da;
+  --muted: #a39d90;
+  --gold: #c6a66a;
+  --gold-bright: #dcc08a;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-line-gold: var(--line-gold);
+  --color-cream: var(--text);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--font-body), "Avenir Next", "Segoe UI", sans-serif;
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(198, 166, 106, 0.35);
+}
+
+/* ---------- typography helpers ---------- */
+
+.display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: 0.005em;
+}
+
+.kicker {
+  font-size: 0.6875rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.gold-rule {
+  width: 3.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ---------- scroll reveal ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-zoom {
+    animation: none;
+  }
+}
+
+/* ---------- hero ---------- */
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.07);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-zoom {
+  animation: heroZoom 3.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ---------- form elements ---------- */
+
+.field {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: 300;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.field::placeholder {
+  color: rgba(234, 229, 218, 0.4);
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.budget-pill {
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 0.55rem 0.4rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.budget-pill:hover {
+  border-color: var(--line-gold);
+  color: var(--text);
+}
+
+.budget-pill.selected {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+  background: rgba(198, 166, 106, 0.08);
+}
+
+.btn-gold {
+  display: block;
+  width: 100%;
+  background: var(--gold);
+  color: #14120c;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn-gold:hover {
+  background: var(--gold-bright);
+}
+
+.btn-gold:active {
+  transform: translateY(1px);
+}
+
+/* ---------- tables ---------- */
+
+.lux-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.lux-table th {
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--gold);
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line-gold);
+  white-space: nowrap;
+}
+
+.lux-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  vertical-align: top;
+}
+
+.lux-table td .sub {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.lux-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
 }
