@@ -7,6 +7,7 @@ import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import StickyCta from "@/components/StickyCta";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -76,6 +77,7 @@ export default function Page() {
     <main className="bg-ink pb-16 text-cream md:pb-0">
       <SiteHeader />
       <StickyCta ctaLabel="Request a call-back" />
+      <WhatsAppFloat />
 
       {/* ============ HERO ============ */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden">

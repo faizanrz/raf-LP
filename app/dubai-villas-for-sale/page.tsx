@@ -3,6 +3,7 @@ import ContactRow from "@/components/ContactRow";
 import InlineCta from "@/components/InlineCta";
 import ParallaxImg from "@/components/ParallaxImg";
 import StickyCta from "@/components/StickyCta";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import LeadForm from "@/components/LeadForm";
 import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
@@ -152,6 +153,7 @@ export default function Page() {
     <main className="bg-ink pb-16 text-cream md:pb-0">
       <SiteHeader />
       <StickyCta ctaLabel="Request a call-back" />
+      <WhatsAppFloat />
 
       {/* ============ HERO ============ */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden">
@@ -683,8 +685,8 @@ export default function Page() {
               <p className="mt-6 text-sm text-muted">
                 Ultra prime villa and residence stock in Downtown Dubai exists at a different
                 price point. If that is the brief,{" "}
-                <a href={site.callbackUrl} className="text-gold hover:text-gold-bright">
-                  book a UK hours callback
+                <a href="#get-prices" className="text-gold hover:text-gold-bright">
+                  request a call-back
                 </a>{" "}
                 and we will take it from there.
               </p>

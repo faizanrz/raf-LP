@@ -6,8 +6,6 @@ export const site = {
   phoneDisplay: "+971 52 836 1591",
   phoneTel: "+971528361591",
   whatsapp: "https://wa.me/971528361591",
-  // PLACEHOLDER: callback booking link (Calendly or LeadNudge booking page)
-  callbackUrl: "#lead-form",
   // PLACEHOLDER: confirm both numbers with RAF before publishing
   dldLicence: "DLD Licence No. 0000000",
   reraOrn: "RERA ORN 00000",
