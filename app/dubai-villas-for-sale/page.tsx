@@ -151,7 +151,7 @@ export default function Page() {
   return (
     <main className="bg-ink pb-16 text-cream md:pb-0">
       <SiteHeader />
-      <StickyCta ctaLabel="Get villa prices" />
+      <StickyCta ctaLabel="Request a call-back" />
 
       {/* ============ HERO ============ */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden">
@@ -193,7 +193,7 @@ export default function Page() {
                 Current price lists, service charge schedules and payment plans, sent the same
                 day by a DLD licensed broker.
               </p>
-              <LeadForm formName="hero" buttonLabel="Get villa prices and availability" />
+              <LeadForm formName="hero" buttonLabel="Request a call-back" />
               <div className="mt-4">
                 <ContactRow />
               </div>
@@ -318,7 +318,7 @@ export default function Page() {
         </div>
         <Reveal>
           <InlineCta
-            label="Get the full cost sheet"
+            label="Get in touch"
             sub="Want these numbers run on your budget? We will send the itemised sheet the same day."
           />
         </Reveal>
@@ -449,7 +449,7 @@ export default function Page() {
         </div>
         <Reveal>
           <InlineCta
-            label="Get community price lists"
+            label="Get in touch"
             sub="Tell us your budget and we will send current availability in the communities that fit it."
           />
         </Reveal>
@@ -526,7 +526,7 @@ export default function Page() {
         </div>
         <Reveal>
           <InlineCta
-            label="Ask us the awkward questions"
+            label="Get in touch"
             sub="Put any of these seven to a broker on a call. If the numbers do not work for you, we will say so."
           />
         </Reveal>
@@ -672,7 +672,7 @@ export default function Page() {
               </dl>
 
               <a href="#get-prices" className="btn-gold mt-8 text-center">
-                Get Lunaya prices and payment calendar
+                Request a call-back about Lunaya
               </a>
 
               <p className="mt-4 text-sm text-muted">
@@ -776,7 +776,7 @@ export default function Page() {
           </Reveal>
           <Reveal delay={0.12}>
             <div className="border border-line bg-ink/80 p-7 backdrop-blur-md sm:p-8">
-              <LeadForm formName="closing" buttonLabel="Get villa prices and availability" />
+              <LeadForm formName="closing" buttonLabel="Request a call-back" />
               <div className="mt-4">
                 <ContactRow />
               </div>

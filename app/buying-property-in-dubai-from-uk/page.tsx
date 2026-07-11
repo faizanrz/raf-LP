@@ -75,7 +75,7 @@ export default function Page() {
   return (
     <main className="bg-ink pb-16 text-cream md:pb-0">
       <SiteHeader />
-      <StickyCta ctaLabel="Get the cost breakdown" />
+      <StickyCta ctaLabel="Request a call-back" />
 
       {/* ============ HERO ============ */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden">
@@ -118,7 +118,7 @@ export default function Page() {
                 Every fee on a Dubai purchase at your budget, itemised in AED and GBP, sent the
                 same day by a DLD licensed broker.
               </p>
-              <LeadForm formName="hero" buttonLabel="Get the full cost breakdown" />
+              <LeadForm formName="hero" buttonLabel="Request a call-back" />
               <div className="mt-4">
                 <ContactRow />
               </div>
@@ -286,7 +286,7 @@ export default function Page() {
         </div>
         <Reveal>
           <InlineCta
-            label="Get the full cost breakdown"
+            label="Get in touch"
             sub="We will run this exact table on your budget, in AED and GBP, the same day."
           />
         </Reveal>
@@ -429,7 +429,7 @@ export default function Page() {
         </div>
         <Reveal>
           <InlineCta
-            label="Ask about a specific project"
+            label="Get in touch"
             sub="Name a project and we will pull its escrow registration and the developer's delivery record."
           />
         </Reveal>
@@ -542,7 +542,7 @@ export default function Page() {
         </Reveal>
         <Reveal>
           <InlineCta
-            label="Check if a property qualifies"
+            label="Get in touch"
             sub="Ask us whether a specific unit clears the threshold and how the off plan mechanics apply to it."
           />
         </Reveal>
@@ -777,7 +777,7 @@ export default function Page() {
           </p>
           <div className="mt-8 flex justify-center">
             <a href="#get-prices" className="btn-gold !w-auto px-10 text-center">
-              Get price lists for all three tiers
+              Request a call-back
             </a>
           </div>
         </Reveal>
@@ -807,7 +807,7 @@ export default function Page() {
           </Reveal>
           <Reveal delay={0.12}>
             <div className="border border-line bg-ink/80 p-7 backdrop-blur-md sm:p-8">
-              <LeadForm formName="closing" buttonLabel="Get the full cost breakdown" />
+              <LeadForm formName="closing" buttonLabel="Request a call-back" />
               <div className="mt-4">
                 <ContactRow />
               </div>
