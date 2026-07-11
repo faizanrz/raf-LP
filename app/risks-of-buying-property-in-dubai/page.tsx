@@ -16,9 +16,13 @@ export const metadata: Metadata = {
 
 /*
   BEFORE GO-LIVE, confirm with RAF:
-  - 2026 supply pipeline figure (~120,000 homes) against a citable source
   - Broker names, photographs and RERA BRN numbers in "If you still want to buy"
   - DLD licence and RERA numbers (lib/site.ts)
+  Figures compiled July 2026: 120,000 scheduled 2026 handovers (Fitch via The
+  National, Jan 2026); delivery rates 46-48%, one quarter at 41% (Knight Frank /
+  Moody's / Cavendish Maxwell, Q1-Q2 2026); rents -6.7% early 2026, prime -15%;
+  Q1 2026 values -3.8% QoQ, 2026 forecasts +1% (Knight Frank) to -7% (S&P), all
+  Q2 2026 consultancy reporting. Reconfirm at publish and quarterly.
   HARD RULES on this page: no inventory, no prices, no property photography,
   no project names. Each section ends on RAF's mechanism, never on the bare
   problem, and never on empty reassurance.
@@ -27,7 +31,7 @@ export const metadata: Metadata = {
 const faq = [
   {
     q: "Is there an oversupply risk in Dubai property?",
-    a: "Around 120,000 new homes are expected to complete across Dubai in 2026, concentrated in volume apartment districts with deep off plan pipelines. Prime areas with constrained land behave differently. The management is district level: before shortlisting, check the three year handover pipeline for the specific district, which a licensed broker can produce.",
+    a: "Around 120,000 units are scheduled for handover in Dubai in 2026, though historical delivery rates near 46% to 48% suggest actual completions closer to 33,000 to 50,000. The pressure concentrates in volume apartment districts with deep off plan pipelines, while prime areas with constrained land behave differently. The management is district level: before shortlisting, check the three year handover pipeline for the specific district, which a licensed broker can produce.",
   },
   {
     q: "What happens if a Dubai off plan project is delayed or cancelled?",
@@ -107,11 +111,24 @@ export default function Page() {
             <h2 className="display mt-4 text-3xl sm:text-4xl">Oversupply</h2>
             <div className="mt-7 space-y-5 text-[1.02rem] leading-relaxed text-muted">
               <p>
-                Around 120,000 new homes are expected to complete across Dubai in 2026, one of
-                the largest delivery years in the city&apos;s history. Supply on that scale
-                does what supply always does. Rents soften as tenants gain choices. Resale
-                prices soften as sellers compete with developers&apos; new stock and payment
-                plans they cannot match.
+                Around 120,000 units are scheduled for handover in Dubai in 2026, one of the
+                largest pipelines in the city&apos;s history, per Fitch via The National.
+                Scheduled is not delivered: completion rates in Dubai have historically run
+                well below schedule, with Knight Frank and Moody&apos;s estimating real
+                delivery near 46% to 48% and one recent quarter landing at 41%, which points
+                to actual 2026 completions closer to 33,000 to 50,000 units. Both numbers
+                matter. The scheduled figure tells you where the pressure is aimed. The
+                delivery rate tells you it arrives slower than the headlines suggest, and
+                arrives all the same.
+              </p>
+              <p>
+                Supply on that scale does what supply always does, and the market is already
+                showing it: rents fell roughly 6.7% across early 2026, with prime areas off
+                around 15%, per Q2 2026 market reporting. Values tell the same two sided
+                story. Q1 2026 residential prices fell 3.8% quarter on quarter, the first
+                quarterly decline since 2020, with a partial rebound in April. Full year 2026
+                forecasts range from roughly +1% at Knight Frank to −7% at S&amp;P. Anyone
+                quoting you a single confident number is selling something.
               </p>
               <p>
                 The pressure does not land evenly. It concentrates where the cranes are:
@@ -119,12 +136,9 @@ export default function Page() {
                 investors who will all be seeking tenants in the same quarter. Prime locations
                 with constrained land and established communities where nothing new can be
                 built behave differently, because their supply is fixed while the city&apos;s
-                demand keeps arriving.
-              </p>
-              <p>
-                If the unit you are considering competes with 5,000 identical units handing
-                over in the same district in the same year, its rent and its resale price are
-                set by that fact, not by the brochure.
+                demand keeps arriving. If the unit you are considering competes with 5,000
+                identical units handing over in the same district in the same year, its rent
+                and its resale price are set by that fact, not by the brochure.
               </p>
             </div>
             <Mechanism>
@@ -289,7 +303,7 @@ export default function Page() {
                   "Community and master community fees on villa plots",
                   "Sinking fund contributions toward future major works",
                   "Management fees where the property is let from the UK",
-                  "Void periods, which arrive on schedule in an oversupplied district",
+                  "Void periods, which arrive on schedule in an oversupplied district. Rents fell roughly 6.7% across early 2026, with prime areas off around 15%, so a yield computed on last year's rent is already stale",
                 ].map((t) => (
                   <li key={t} className="flex gap-3">
                     <span className="mt-3 h-px w-4 shrink-0 bg-gold" />

@@ -21,8 +21,11 @@ export const metadata: Metadata = {
   - DLD licence and RERA numbers (lib/site.ts)
   - UK phone, WhatsApp and callback links (lib/site.ts)
   - Community table figures (price/sqft, service charges, plot sizes)
-  - DLD 2025 transaction stats and Knight Frank villa data in "Why buy through RAF"
   - Broker names, photographs and RERA BRN numbers
+  Market figures compiled July 2026: DLD 2025 annual (AED 917bn / 270k+ / +20%,
+  via Dubai Media Office Jan 2026), residential AED 682.5bn via DLD Annual Report,
+  yields Engel & Völkers H1 2026, growth forecast ValuStrat via Global Property
+  Guide June 2026. Reconfirm at publish and quarterly.
   - Lunaya handover date is deliberately omitted (published sources conflict)
 */
 
@@ -468,7 +471,7 @@ export default function Page() {
             {[
               {
                 head: "Gross yield",
-                body: "Villas rent at lower gross yields than apartments. The income case favours apartments, and it always has.",
+                body: "Villas average 4.5% gross against 5.1% for townhouses and 6.9% for apartments, per Engel & Völkers Dubai's H1 2026 review. The income case favours apartments, and it always has.",
               },
               {
                 head: "Service charge burden",
@@ -480,7 +483,7 @@ export default function Page() {
               },
               {
                 head: "Capital growth",
-                body: "Land appreciates and buildings depreciate. Villas hold the land, and villa prices have historically moved ahead of apartments in rising markets.",
+                body: "Land appreciates and buildings depreciate. Villas hold the land: ValuStrat forecasts villa capital values up 17.7% in 2026 against roughly 10% citywide. A third party forecast, not a promise.",
               },
             ].map((c, i) => (
               <Reveal key={c.head} delay={i * 0.07} className="bg-ink-2 p-7">
@@ -704,19 +707,19 @@ export default function Page() {
           </Reveal>
 
           <div className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-3">
-            {/* PLACEHOLDER STATS: verify each figure against the cited source before go-live */}
+            {/* Figures compiled July 2026. Reconfirm DLD headline numbers at publish and quarterly. */}
             {[
               {
-                stat: "AED 761bn",
-                sub: "£162bn of Dubai property transactions recorded in 2024, across 226,000 deals. Source: Dubai Land Department.",
+                stat: "AED 917bn",
+                sub: "£195bn of Dubai property transactions in 2025 across 270,000 plus deals, up 20% year on year, the fifth consecutive record year. Source: Dubai Land Department, January 2026.",
               },
               {
-                stat: "2025: record year",
-                sub: "DLD's 2025 annual figures showed transaction values ahead of 2024. Exact figure and year on year change to be inserted from the DLD release.",
+                stat: "AED 682.5bn",
+                sub: "£145bn of residential sales across 214,912 transactions in 2025, up 30.6% in value on 2024. Source: DLD 2025 Annual Report.",
               },
               {
-                stat: "Villa led growth",
-                sub: "Villa prices outpaced apartments through 2024 and 2025 on constrained supply. Source: Knight Frank Dubai residential research, to be cited on publish.",
+                stat: "129,600",
+                sub: "new investors entered the Dubai market in 2025, up 23% on the year before. Source: Dubai Land Department.",
               },
             ].map((s, i) => (
               <Reveal key={s.stat} delay={i * 0.07} className="bg-ink-2 p-8">

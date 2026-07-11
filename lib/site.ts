@@ -10,7 +10,7 @@ export const site = {
   dldLicence: "DLD Licence No. 0000000",
   reraOrn: "RERA ORN 00000",
   // GBP conversions across all pages use this rate. Update on publish.
-  fxNote: "GBP figures convert at AED 4.70 to £1 and are rounded. Confirm the rate on the day you transact.",
+  fxNote: "GBP figures convert at AED 4.70 to £1, the rate at July 2026, and are rounded. Confirm the live rate on the day you transact.",
 };
 
 // POST target for lead forms. Wire to LeadNudge webhook / form endpoint.

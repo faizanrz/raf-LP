@@ -19,8 +19,10 @@ export const metadata: Metadata = {
 /*
   BEFORE GO-LIVE, confirm with RAF:
   - Written permission to use the Mr. C brand name on this page (licensed brand: page only, never ad copy)
-  - Golden Visa AED 2M threshold against the current DLD / UAE government portal figure
-  - UK stamp duty comparison figure against current HMRC rates
+  Figures compiled July 2026: Golden Visa AED 2M threshold and Feb 2026 upfront-payment
+  rule removal (federal circular 20 Feb 2026); SDLT £37,500 resident / £47,500 non-resident
+  on £500k (HMRC rates from 1 Apr 2025); EIBOR-linked rates 3.79% to 4.5% (May 2026).
+  Reconfirm the Golden Visa rule and thresholds at publish and quarterly.
   - Tier inventory, prices and availability (113 Residences, Lunaya, Mr. C Residences)
   - 113 Residences facts are taken from the IMAN factsheet (Q2 2029 completion, 20/10/10/10/50 plan)
   - Lunaya handover date deliberately omitted (published sources conflict)
@@ -472,8 +474,9 @@ export default function Page() {
           <Reveal delay={0.1}>
             <p className="mt-8 max-w-3xl text-muted">
               In practice the deposit is the constraint, not the mortgage. UAE lenders will
-              lend to UK residents with documented income, and rates are typically priced off
-              EIBOR rather than the Bank of England base rate. What catches buyers out is
+              lend to UK residents with documented income, and rates are priced off EIBOR
+              rather than the Bank of England base rate, currently around 3.79% to 4.5% per
+              UAE lender guides at May 2026. What catches buyers out is
               assembling 40% plus 6% to 8% in costs, in cash, in AED, on the lender&apos;s
               timeline. Get an approval in principle before you shortlist and the rest of the
               process holds no surprises.
@@ -488,11 +491,14 @@ export default function Page() {
           <p className="kicker">Residency through property</p>
           <h2 className="display mt-4 text-4xl sm:text-5xl">The Golden Visa property route</h2>
           <p className="mt-6 max-w-2xl text-muted">
-            {/* Verify threshold against DLD / UAE government portal before publishing */}
-            A property investment at or above AED 2 million (£426,000) qualifies the owner to
-            apply for the 10 year UAE Golden Visa, under the property route set out by the
-            Dubai Land Department. Salary, business ownership and specialised talent routes
-            also exist, with different criteria, and this page is not about them.
+            {/* Threshold and Feb 2026 rule change: reconfirm at publish and quarterly */}
+            A property investment at or above AED 2 million (£426,000) in DLD certified value
+            qualifies the owner to apply for the 10 year UAE Golden Visa. The rules moved in
+            the buyer&apos;s favour in February 2026: a federal circular removed the old
+            requirement to have paid 50% or AED 1M (£213,000) upfront, so eligibility now
+            rests solely on the property reaching AED 2M in certified value, regardless of any
+            mortgage balance. Salary, business ownership and specialised talent routes also
+            exist, with different criteria, and this page is not about them.
           </p>
         </Reveal>
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -502,8 +508,8 @@ export default function Page() {
               <ul className="mt-5 space-y-3 text-[0.92rem] text-muted">
                 {[
                   "Ten year renewable UAE residency, without a local sponsor",
-                  "Sponsorship of your spouse, children and parents",
-                  "No minimum stay: the visa does not lapse if you remain outside the UAE",
+                  "Sponsorship of your spouse, children of any age, and parents",
+                  "No minimum stay: residency holds even if you remain outside the UAE beyond six months",
                 ].map((t) => (
                   <li key={t} className="flex gap-3">
                     <span className="mt-2.5 h-px w-4 shrink-0 bg-gold" />
@@ -533,13 +539,16 @@ export default function Page() {
         </div>
         <Reveal delay={0.1}>
           <p className="mt-8 max-w-3xl text-muted">
-            Which properties qualify: freehold property valued at or above the threshold, held
-            in your name. On off plan purchases the paid percentage matters, and the mechanics
-            differ by project, so have the position confirmed in writing before you rely on it.
-            The application itself runs through the Dubai Land Department once the title
-            supports it: a medical test, biometrics for the Emirates ID, and the visa
-            typically issued within weeks rather than months. Buy the property because it is
-            worth owning. If it also carries a ten year visa, that is a benefit, not a reason.
+            Which properties qualify: freehold at or above the threshold, held in your name,
+            and multiple properties can be combined to reach the AED 2M (£426,000) figure.
+            Off plan qualifies at the Oqood recorded value from a RERA approved developer,
+            even before handover, with a bank NOC where the property is mortgaged. That
+            matters for staged purchases: a buyer on a 40/60 payment plan can qualify on the
+            recorded value without having paid the full amount. The application itself runs
+            through the Dubai Land Department once the title or Oqood supports it: a medical
+            test, biometrics for the Emirates ID, and the visa typically issued within weeks
+            rather than months. Buy the property because it is worth owning. If it also
+            carries a ten year visa, that is a benefit, not a reason.
           </p>
         </Reveal>
         <Reveal>
@@ -571,7 +580,7 @@ export default function Page() {
                     "No personal income tax on rental earnings",
                     "No capital gains tax on sale",
                     "No annual property tax",
-                    "A 4% DLD transfer fee at purchase, in place of anything resembling stamp duty. For contrast, UK stamp duty on a £500,000 (AED 2.35M) second property runs to roughly £40,000 (AED 188,000) under the rates in force since April 2025.",
+                    "A 4% DLD transfer fee at purchase, in place of anything resembling stamp duty. For contrast, UK stamp duty on a £500,000 (AED 2.35M) second property is £37,500 (AED 176,000) for a UK resident under HMRC rates in force since April 2025, and £47,500 (AED 223,000) with the non resident surcharge. The Dubai fee on our £1M (AED 4.7M) worked example is £40,000 (AED 188,000): the UK second home buyer pays nearly the same in pure tax on a property a third of the price.",
                   ].map((t) => (
                     <li key={t} className="flex gap-3">
                       <span className="mt-2.5 h-px w-4 shrink-0 bg-gold" />
