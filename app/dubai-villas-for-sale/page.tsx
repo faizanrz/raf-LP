@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 
 /*
   BEFORE GO-LIVE, confirm with RAF:
-  - DLD licence and RERA numbers (lib/site.ts)
   - UK phone, WhatsApp and callback links (lib/site.ts)
   - Community table figures (price/sqft, service charges, plot sizes)
   - Broker names, photographs and RERA BRN numbers

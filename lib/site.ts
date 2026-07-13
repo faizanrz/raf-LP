@@ -6,9 +6,8 @@ export const site = {
   phoneDisplay: "+971 52 836 1591",
   phoneTel: "+971528361591",
   whatsapp: "https://wa.me/971528361591",
-  // PLACEHOLDER: confirm both numbers with RAF before publishing
-  dldLicence: "DLD Licence No. 0000000",
-  reraOrn: "RERA ORN 00000",
+  dldLicence: "DLD Licence No. 1180305",
+  reraOrn: "RERA ORN 47185",
   // GBP conversions across all pages use this rate. Update on publish.
   fxNote: "GBP figures convert at AED 4.70 to £1, the rate at July 2026, and are rounded. Confirm the live rate on the day you transact.",
 };

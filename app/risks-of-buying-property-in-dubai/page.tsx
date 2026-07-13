@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 /*
   BEFORE GO-LIVE, confirm with RAF:
   - Broker names, photographs and RERA BRN numbers in "If you still want to buy"
-  - DLD licence and RERA numbers (lib/site.ts)
   Figures compiled July 2026: 120,000 scheduled 2026 handovers (Fitch via The
   National, Jan 2026); delivery rates 46-48%, one quarter at 41% (Knight Frank /
   Moody's / Cavendish Maxwell, Q1-Q2 2026); rents -6.7% early 2026, prime -15%;

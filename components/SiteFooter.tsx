@@ -13,7 +13,6 @@ export default function SiteFooter({ links }: Props) {
           <div>
             <Image src="/img/raf-logo-white.svg" alt="RAF Real Estate" width={130} height={25} />
             <p className="mt-4 max-w-xs text-sm text-muted">
-              {/* PLACEHOLDER: confirm licence numbers with RAF before publishing */}
               {site.dldLicence} · {site.reraOrn}
             </p>
             <a
