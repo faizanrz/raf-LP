@@ -6,7 +6,6 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import StickyCta from "@/components/StickyCta";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "The Risks of Buying Property in Dubai | And How UK Buyers Manage Them",
@@ -16,7 +15,6 @@ export const metadata: Metadata = {
 
 /*
   BEFORE GO-LIVE, confirm with RAF:
-  - Broker names, photographs and RERA BRN numbers in "If you still want to buy"
   Figures compiled July 2026: 120,000 scheduled 2026 handovers (Fitch via The
   National, Jan 2026); delivery rates 46-48%, one quarter at 41% (Knight Frank /
   Moody's / Cavendish Maxwell, Q1-Q2 2026); rents -6.7% early 2026, prime -15%;
@@ -472,23 +470,29 @@ export default function Page() {
                 work. That is the service. The properties are the easy part.
               </p>
             </div>
-            {/* PLACEHOLDER: real broker names, photographs and BRN numbers from RAF */}
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              {["Broker name", "Broker name"].map((n, i) => (
-                <div key={i} className="border border-line bg-panel p-5">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-line-gold text-gold">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden>
-                      <circle cx="12" cy="8" r="4" />
-                      <path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5" />
-                    </svg>
-                  </div>
-                  <p className="mt-4 text-cream">{n}</p>
-                  <p className="text-[0.78rem] text-muted">RERA BRN 00000 · photograph to follow</p>
-                </div>
-              ))}
+              <div className="border border-line-gold/60 bg-panel p-6">
+                <p className="text-[0.6875rem] uppercase tracking-[0.2em] text-gold">
+                  Dubai Land Department
+                </p>
+                <p className="display mt-2 text-2xl text-cream">Licence 1180305</p>
+                <p className="mt-2 text-[0.78rem] text-muted">
+                  Verifiable on the DLD brokerage register
+                </p>
+              </div>
+              <div className="border border-line-gold/60 bg-panel p-6">
+                <p className="text-[0.6875rem] uppercase tracking-[0.2em] text-gold">
+                  RERA registered
+                </p>
+                <p className="display mt-2 text-2xl text-cream">ORN 47185</p>
+                <p className="mt-2 text-[0.78rem] text-muted">
+                  Office registration number, Real Estate Regulatory Agency
+                </p>
+              </div>
             </div>
             <p className="mt-6 text-sm text-muted">
-              {site.brand} · {site.dldLicence} · {site.reraOrn}
+              Every RAF broker who will speak to you carries a RERA broker card, shown on
+              request.
             </p>
           </Reveal>
         </div>
