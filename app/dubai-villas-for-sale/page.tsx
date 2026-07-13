@@ -683,14 +683,69 @@ export default function Page() {
                 enquiry, in writing.
               </p>
 
-              <p className="mt-6 text-sm text-muted">
-                Ultra prime villa and residence stock in Downtown Dubai exists at a different
-                price point. If that is the brief,{" "}
-                <a href="#get-prices" className="text-gold hover:text-gold-bright">
-                  request a call-back
-                </a>{" "}
-                and we will take it from there.
-              </p>
+            </Reveal>
+          </div>
+
+          {/* Secondary projects: for buyers whose brief flexes beyond the villa answer */}
+          <Reveal>
+            <p className="mt-20 max-w-2xl text-muted">
+              The shortlist above is the villa answer. Two other propositions we hold, for
+              when the brief flexes:
+            </p>
+          </Reveal>
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            <Reveal delay={0.05}>
+              <div className="flex h-full flex-col overflow-hidden border border-line bg-panel">
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src="/img/113-render-900.webp"
+                    alt="Curved terraces of 113 Residences in Al Sufouh"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <p className="kicker">Apartments · Al Sufouh</p>
+                  <h3 className="display mt-2 text-2xl text-cream">113 Residences</h3>
+                  <p className="mt-3 flex-1 text-[0.92rem] text-muted">
+                    A boutique building of 113 apartments and duplexes by IMAN Developers, one
+                    minute from Sheikh Zayed Road. The apartment entry point for a buyer who
+                    wants income first and square footage second: 1 to 4 beds, 689 to 3,250
+                    sqft, on a 50/50 payment plan, handover Q2 2029.
+                  </p>
+                  <p className="mt-4 border-t border-line pt-4 text-sm">
+                    <span className="text-gold-bright">From AED 1.8M</span>{" "}
+                    <span className="text-muted">£383,000</span>
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={0.12}>
+              {/* Licensed brand name: written confirmation from RAF required before publish */}
+              <div className="flex h-full flex-col overflow-hidden border border-line bg-panel">
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src="/img/mrc-living-900.webp"
+                    alt="Residence living room overlooking the Downtown Dubai skyline"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-7">
+                  <p className="kicker">Ultra prime · Downtown Dubai</p>
+                  <h3 className="display mt-2 text-2xl text-cream">Mr. C Residences Downtown</h3>
+                  <p className="mt-3 flex-1 text-[0.92rem] text-muted">
+                    Three and four bedroom residences by Alta Real Estate Development in Al
+                    Wasl, Downtown Dubai, with branded hotel style services and a short
+                    handover horizon of early 2027. This tier buys address and building
+                    quality rather than yield, with 40% payable during construction.
+                  </p>
+                  <p className="mt-4 border-t border-line pt-4 text-sm">
+                    <span className="text-gold-bright">From AED 12M</span>{" "}
+                    <span className="text-muted">£2.55M, 3 bed</span>
+                  </p>
+                </div>
+              </div>
             </Reveal>
           </div>
         </div>
