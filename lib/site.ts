@@ -12,5 +12,6 @@ export const site = {
   fxNote: "GBP figures convert at AED 4.70 to £1, the rate at July 2026, and are rounded. Confirm the live rate on the day you transact.",
 };
 
-// POST target for lead forms. Wire to LeadNudge webhook / form endpoint.
-export const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT ?? "";
+// POST target for lead forms. Defaults to the in-app route that emails RAF
+// via Resend; the LeadNudge script captures the same submission in parallel.
+export const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT ?? "/api/lead/";
