@@ -21,7 +21,7 @@ type Hidden = {
 
 export default function LeadForm({ buttonLabel, formName, showBudget = true }: Props) {
   const [budget, setBudget] = useState<string>("");
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [hidden, setHidden] = useState<Hidden>({
     gclid: "",
     keyword: "",
@@ -45,22 +45,20 @@ export default function LeadForm({ buttonLabel, formName, showBudget = true }: P
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
     setStatus("sending");
+    // The LeadNudge script captures this submission independently, so a
+    // failure of the email notification route must not read as a failed
+    // enquiry to the visitor.
     try {
-      if (LEAD_ENDPOINT) {
-        const res = await fetch(LEAD_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
-        if (!res.ok) throw new Error(String(res.status));
-      } else {
-        // No endpoint wired yet. Log so the submission is visible in testing.
-        console.log("Lead (no endpoint configured):", data);
-      }
-      setStatus("done");
-    } catch {
-      setStatus("error");
+      const res = await fetch(LEAD_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) console.error("Lead email notification failed:", res.status);
+    } catch (err) {
+      console.error("Lead email notification failed:", err);
     }
+    setStatus("done");
   }
 
   if (status === "done") {
@@ -140,11 +138,6 @@ export default function LeadForm({ buttonLabel, formName, showBudget = true }: P
         {status === "sending" ? "Sending…" : buttonLabel}
       </button>
 
-      {status === "error" && (
-        <p className="text-sm text-red-300">
-          Something went wrong. Call {site.phoneDisplay} or try again.
-        </p>
-      )}
     </form>
   );
 }
