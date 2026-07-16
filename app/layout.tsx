@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
+import GoogleTag from "@/components/GoogleTag";
 import LeadNudgeScript from "@/components/LeadNudgeScript";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <LeadNudgeScript />
+        <GoogleTag />
       </body>
     </html>
   );

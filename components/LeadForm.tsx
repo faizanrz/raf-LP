@@ -1,7 +1,8 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
-import { LEAD_ENDPOINT, site } from "@/lib/site";
+import { LEAD_ENDPOINT } from "@/lib/site";
 
 const BUDGETS = ["Under AED 2M", "AED 2M to 5M", "AED 5M to 10M", "AED 10M+"];
 
@@ -20,6 +21,7 @@ type Hidden = {
 };
 
 export default function LeadForm({ buttonLabel, formName, showBudget = true }: Props) {
+  const router = useRouter();
   const [budget, setBudget] = useState<string>("");
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [hidden, setHidden] = useState<Hidden>({
@@ -59,22 +61,8 @@ export default function LeadForm({ buttonLabel, formName, showBudget = true }: P
       console.error("Lead email notification failed:", err);
     }
     setStatus("done");
-  }
-
-  if (status === "done") {
-    return (
-      <div className="border border-line-gold bg-panel px-8 py-12 text-center">
-        <p className="display text-2xl text-cream">Thank you.</p>
-        <p className="mt-3 text-sm text-muted">
-          A DLD licensed broker will contact you within UK working hours. If it is urgent,
-          call{" "}
-          <a href={`tel:${site.phoneTel}`} className="text-gold hover:text-gold-bright">
-            {site.phoneDisplay}
-          </a>
-          .
-        </p>
-      </div>
-    );
+    // Dedicated confirmation page, used as the Google Ads conversion event.
+    router.push("/thank-you/");
   }
 
   return (
