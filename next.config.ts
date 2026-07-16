@@ -6,6 +6,15 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/dubai-villas-for-sale/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
