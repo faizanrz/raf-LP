@@ -2,7 +2,7 @@
 // Everything marked PLACEHOLDER must be confirmed with RAF before go-live.
 
 // Production hostname for canonicals, OG tags, robots and sitemap.
-export const SITE_URL = "https://uk.rafestates.com";
+export const SITE_URL = "https://rafestates.co.uk";
 
 export const site = {
   brand: "RAF Real Estate",
