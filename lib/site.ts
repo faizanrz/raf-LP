@@ -1,6 +1,9 @@
 // Central place for contact details and compliance numbers.
 // Everything marked PLACEHOLDER must be confirmed with RAF before go-live.
 
+// Production hostname for canonicals, OG tags, robots and sitemap.
+export const SITE_URL = "https://uk.rafestates.com";
+
 export const site = {
   brand: "RAF Real Estate",
   phoneDisplay: "+971 52 836 1591",

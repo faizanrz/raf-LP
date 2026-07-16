@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import LeadNudgeScript from "@/components/LeadNudgeScript";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -18,8 +19,14 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "RAF Real Estate",
   description: "Dubai property for UK buyers.",
+  openGraph: {
+    siteName: "RAF Real Estate",
+    locale: "en_GB",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

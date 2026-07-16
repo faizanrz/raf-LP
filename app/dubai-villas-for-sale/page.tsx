@@ -14,6 +14,14 @@ export const metadata: Metadata = {
   title: "Villas for Sale in Dubai | Prices, Communities & Fees for UK Buyers",
   description:
     "Compare Dubai villa communities on price, service charges and handover. Freehold for UK buyers. Villas from AED 4.9M. Speak to a DLD licensed broker.",
+  alternates: { canonical: "/dubai-villas-for-sale/" },
+  openGraph: {
+    title: "Villas for Sale in Dubai | Prices, Communities & Fees for UK Buyers",
+    description:
+      "Compare Dubai villa communities on price, service charges and handover. Freehold for UK buyers. Villas from AED 4.9M.",
+    url: "/dubai-villas-for-sale/",
+    images: [{ url: "/img/hero-lunaya-1920.webp", width: 1920, height: 1080 }],
+  },
 };
 
 /*

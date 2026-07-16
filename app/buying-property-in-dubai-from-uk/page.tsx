@@ -14,6 +14,14 @@ export const metadata: Metadata = {
   title: "Buying Property in Dubai from the UK | Process, Costs, Tax & Golden Visa",
   description:
     "How a UK resident buys freehold property in Dubai. Full fee breakdown, off plan explained, 60% LTV for non residents, Golden Visa threshold, and what you still owe HMRC.",
+  alternates: { canonical: "/buying-property-in-dubai-from-uk/" },
+  openGraph: {
+    title: "Buying Property in Dubai from the UK | Process, Costs, Tax & Golden Visa",
+    description:
+      "How a UK resident buys freehold property in Dubai. Full fee breakdown, off plan explained, and what you still owe HMRC.",
+    url: "/buying-property-in-dubai-from-uk/",
+    images: [{ url: "/img/hero-mrc-1920.webp", width: 1920, height: 1080 }],
+  },
 };
 
 /*

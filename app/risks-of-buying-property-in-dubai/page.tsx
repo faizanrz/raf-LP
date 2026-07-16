@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   title: "The Risks of Buying Property in Dubai | And How UK Buyers Manage Them",
   description:
     "Oversupply, delivery delays, liquidity, service charges and HMRC. The real problems UK buyers hit in Dubai, and how a DLD licensed broker handles each one.",
+  alternates: { canonical: "/risks-of-buying-property-in-dubai/" },
+  openGraph: {
+    title: "The Risks of Buying Property in Dubai | And How UK Buyers Manage Them",
+    description:
+      "Oversupply, delivery delays, liquidity, service charges and HMRC. The real problems, and how a DLD licensed broker handles each one.",
+    url: "/risks-of-buying-property-in-dubai/",
+  },
 };
 
 /*
