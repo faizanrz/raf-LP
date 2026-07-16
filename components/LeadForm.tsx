@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
-import { LEAD_ENDPOINT } from "@/lib/site";
 
 const BUDGETS = ["Under AED 2M", "AED 2M to 5M", "AED 5M to 10M", "AED 10M+"];
 
@@ -41,26 +40,13 @@ export default function LeadForm({ buttonLabel, formName, showBudget = true }: P
     });
   }, []);
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
+    // Lead delivery is handled entirely by the LeadNudge script, which
+    // listens for the submit event in the capture phase and posts with
+    // keepalive, so navigating away does not cancel it.
     e.preventDefault();
     if (status === "sending") return;
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
     setStatus("sending");
-    // The LeadNudge script captures this submission independently, so a
-    // failure of the email notification route must not read as a failed
-    // enquiry to the visitor.
-    try {
-      const res = await fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) console.error("Lead email notification failed:", res.status);
-    } catch (err) {
-      console.error("Lead email notification failed:", err);
-    }
-    setStatus("done");
     // Dedicated confirmation page, used as the Google Ads conversion event.
     router.push("/thank-you/");
   }

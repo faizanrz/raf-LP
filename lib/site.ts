@@ -14,7 +14,3 @@ export const site = {
   // GBP conversions across all pages use this rate. Update on publish.
   fxNote: "GBP figures convert at AED 4.70 to £1, the rate at July 2026, and are rounded. Confirm the live rate on the day you transact.",
 };
-
-// POST target for lead forms. Defaults to the in-app route that emails RAF
-// via Resend; the LeadNudge script captures the same submission in parallel.
-export const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT ?? "/api/lead/";
