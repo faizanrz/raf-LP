@@ -47,6 +47,8 @@ export default function LeadForm({ buttonLabel, formName, showBudget = true }: P
     e.preventDefault();
     if (status === "sending") return;
     setStatus("sending");
+    // Meta Pixel standard Lead event, fired at the moment of submission.
+    (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.("track", "Lead");
     // Dedicated confirmation page, used as the Google Ads conversion event.
     router.push("/thank-you/");
   }
