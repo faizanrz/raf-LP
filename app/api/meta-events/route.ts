@@ -62,10 +62,14 @@ export async function POST(req: NextRequest) {
     user_data: userData,
   };
 
+  const payload: Record<string, unknown> = { data: [event], access_token: token };
+  // Events Manager "Test Events" validation; ignored by Meta in normal traffic.
+  if (body.test_event_code) payload.test_event_code = body.test_event_code;
+
   const res = await fetch(`https://graph.facebook.com/${API_VERSION}/${PIXEL_ID}/events`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ data: [event], access_token: token }),
+    body: JSON.stringify(payload),
   });
 
   const detail = await res.json().catch(() => ({}));
