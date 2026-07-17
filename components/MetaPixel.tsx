@@ -3,6 +3,7 @@
 import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
+import { sendMetaEvent } from "@/lib/metaCapi";
 
 const PIXEL_ID = "1389593926371441";
 
@@ -22,9 +23,13 @@ export default function MetaPixel() {
   useEffect(() => {
     if (initialLoad.current) {
       initialLoad.current = false;
-      return;
+    } else {
+      // The base snippet only covers the initial load; fire PageView on
+      // client-side route changes (e.g. the /thank-you/ redirect).
+      window.fbq?.("track", "PageView");
     }
-    window.fbq?.("track", "PageView");
+    // ViewContent on every page, browser + Conversions API, deduplicated.
+    sendMetaEvent("ViewContent");
   }, [pathname]);
 
   return (

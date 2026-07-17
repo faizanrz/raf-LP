@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
+import { sendMetaEvent } from "@/lib/metaCapi";
 
 const BUDGETS = ["Under AED 2M", "AED 2M to 5M", "AED 5M to 10M", "AED 10M+"];
 
@@ -46,9 +47,17 @@ export default function LeadForm({ buttonLabel, formName, showBudget = true }: P
     // keepalive, so navigating away does not cancel it.
     e.preventDefault();
     if (status === "sending") return;
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
     setStatus("sending");
-    // Meta Pixel standard Lead event, fired at the moment of submission.
-    (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.("track", "Lead");
+    // Meta Lead event: browser pixel + Conversions API with shared event_id.
+    const nameParts = (data.name ?? "").trim().split(/\s+/);
+    sendMetaEvent("Lead", {
+      email: data.email,
+      phone: data.phone,
+      first_name: nameParts[0],
+      last_name: nameParts.slice(1).join(" "),
+    });
     // Dedicated confirmation page, used as the Google Ads conversion event.
     router.push("/thank-you/");
   }
