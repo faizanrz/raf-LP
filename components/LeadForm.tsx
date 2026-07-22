@@ -5,11 +5,14 @@ import { useEffect, useState, type FormEvent } from "react";
 import { sendMetaEvent } from "@/lib/metaCapi";
 
 const BUDGETS = ["Under AED 2M", "AED 2M to 5M", "AED 5M to 10M", "AED 10M+"];
+const PLANS = ["To live in", "To invest", "Building a portfolio"];
 
 type Props = {
   buttonLabel: string;
   formName: string; // distinguishes top vs bottom form in analytics
   showBudget?: boolean;
+  budgetOptions?: string[]; // override the default AED bands (e.g. GBP bands)
+  showPlan?: boolean; // "What's the plan?" qualifier, feeds lead scoring
   compact?: boolean;
 };
 
@@ -20,9 +23,16 @@ type Hidden = {
   landing_page: string;
 };
 
-export default function LeadForm({ buttonLabel, formName, showBudget = true }: Props) {
+export default function LeadForm({
+  buttonLabel,
+  formName,
+  showBudget = true,
+  budgetOptions = BUDGETS,
+  showPlan = false,
+}: Props) {
   const router = useRouter();
   const [budget, setBudget] = useState<string>("");
+  const [plan, setPlan] = useState<string>("");
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [hidden, setHidden] = useState<Hidden>({
     gclid: "",
@@ -90,9 +100,11 @@ export default function LeadForm({ buttonLabel, formName, showBudget = true }: P
 
       {showBudget && (
         <fieldset>
-          <legend className="mb-2 text-[0.6875rem] uppercase tracking-[0.2em] text-muted">Budget</legend>
+          <legend className="mb-2 text-[0.6875rem] uppercase tracking-[0.2em] text-muted">
+            {showPlan ? "Your budget" : "Budget"}
+          </legend>
           <div className="grid grid-cols-2 gap-2">
-            {BUDGETS.map((b) => (
+            {budgetOptions.map((b) => (
               <label key={b} className={`budget-pill ${budget === b ? "selected" : ""}`}>
                 <input
                   type="radio"
@@ -111,6 +123,39 @@ export default function LeadForm({ buttonLabel, formName, showBudget = true }: P
             type="text"
             name="budget"
             value={budget}
+            readOnly
+            tabIndex={-1}
+            aria-hidden="true"
+            className="sr-only"
+          />
+        </fieldset>
+      )}
+
+      {showPlan && (
+        <fieldset>
+          <legend className="mb-2 text-[0.6875rem] uppercase tracking-[0.2em] text-muted">
+            What&apos;s the plan?
+          </legend>
+          <div className="grid grid-cols-3 gap-2">
+            {PLANS.map((p) => (
+              <label key={p} className={`budget-pill !px-1 ${plan === p ? "selected" : ""}`}>
+                <input
+                  type="radio"
+                  name="plan"
+                  value={p}
+                  className="sr-only"
+                  onChange={() => setPlan(p)}
+                  checked={plan === p}
+                />
+                {p}
+              </label>
+            ))}
+          </div>
+          {/* Mirror for lead-capture scripts that skip radio inputs. */}
+          <input
+            type="text"
+            name="plan"
+            value={plan}
             readOnly
             tabIndex={-1}
             aria-hidden="true"

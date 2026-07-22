@@ -4,6 +4,7 @@ import { SITE_URL } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     "/dubai-villas-for-sale/",
+    "/dubai-apartments-for-sale/",
     "/buying-property-in-dubai-from-uk/",
     "/risks-of-buying-property-in-dubai/",
   ].map((path) => ({

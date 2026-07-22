@@ -3,9 +3,10 @@ import { site } from "@/lib/site";
 
 type Props = {
   links: { href: string; label: string }[];
+  fxNote?: string; // page-specific currency basis, overrides the site default
 };
 
-export default function SiteFooter({ links }: Props) {
+export default function SiteFooter({ links, fxNote }: Props) {
   return (
     <footer className="border-t border-line bg-ink-2">
       <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
@@ -38,7 +39,7 @@ export default function SiteFooter({ links }: Props) {
           <p className="max-w-4xl text-[0.8125rem] leading-relaxed text-muted">
             The value of property investments can fall as well as rise, and past performance is
             not a guide to future results. Any projection shown to you will state the basis on
-            which it was calculated. {site.fxNote}
+            which it was calculated. {fxNote ?? site.fxNote}
           </p>
           <p className="mt-4 text-[0.8125rem] text-muted/70">
             © {new Date().getFullYear()} RAF Real Estate. All rights reserved.
