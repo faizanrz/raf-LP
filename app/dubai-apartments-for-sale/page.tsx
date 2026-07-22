@@ -52,11 +52,11 @@ const areas = [
 const faq = [
   {
     q: "Can UK citizens buy an apartment in Dubai?",
-    a: "Yes. UK nationals can buy freehold apartments in Dubai's designated freehold areas, with full ownership. No residency and no UAE visa is required to purchase.",
+    a: "Yes. UK nationals can buy freehold apartments and flats in Dubai's designated freehold areas, with full ownership. No residency and no UAE visa is required to purchase.",
   },
   {
     q: "How much do I need to start?",
-    a: "Across Dubai as a whole, entry budgets start lower, but for new-build stock in a well-traded community you should plan on £365,000 upward for a one-bedroom, before transaction costs. Our own projects start at that level. Budget another 6% to 8% on top for fees.",
+    a: "Across Dubai as a whole, entry budgets start lower, but for new-build stock in a well-traded community you should plan on £365,000 upward for a one-bedroom flat, before transaction costs. Our own projects start at that level. Budget another 6% to 8% on top for fees.",
   },
   {
     q: "Do I pay UK-style stamp duty?",
@@ -191,7 +191,8 @@ export default function Page() {
           </h2>
           <p className="mt-6 max-w-2xl text-muted">
             The advertised price is not the price you pay. Here is the full number, on a
-            worked example of a £300,000 apartment.
+            worked example of a £365,000 apartment, which is where our one-bedroom flats
+            start.
           </p>
         </Reveal>
 
@@ -205,11 +206,11 @@ export default function Page() {
                 <tbody>
                   <tr>
                     <td>Dubai Land Department transfer fee, 4% of the price</td>
-                    <td className="text-right">£12,000</td>
+                    <td className="text-right">£14,600</td>
                   </tr>
                   <tr>
                     <td>Agency commission, 2%</td>
-                    <td className="text-right">£6,000</td>
+                    <td className="text-right">£7,300</td>
                   </tr>
                   <tr>
                     <td>Property registration and trustee fees</td>
@@ -322,7 +323,9 @@ export default function Page() {
             Where to buy an apartment in Dubai
           </h2>
           <p className="mt-6 max-w-2xl text-muted">
-            The same budget buys very different things depending on the area. The figures
+            Flats in one community can cost twice as much per square foot as an identical
+            flat ten minutes away. The same budget buys very different things depending on
+            the area. The figures
             below come from Dubai Land Department transaction records, not from asking prices
             on portals. They are what buyers actually paid.
           </p>
@@ -560,14 +563,14 @@ export default function Page() {
             One, two or three bedroom, which to buy
           </h2>
           <p className="mt-6 max-w-2xl text-muted">
-            The right size depends on whether you are optimising for yield, for capital
-            growth, or for your own use.
+            Whether you call it an apartment or a flat, the right size depends on whether
+            you are optimising for yield, for capital growth, or for your own use.
           </p>
         </Reveal>
         <div className="mt-12 grid gap-px overflow-hidden border border-line bg-line lg:grid-cols-3">
           {[
             {
-              head: "Studios and one-bedroom",
+              head: "Studios and one-bedroom flats",
               body: "Deliver the highest gross yields and the widest tenant pool, so they let and re-let fastest. They carry the lowest entry price and the lowest total service charge. This is where first-time buyers and yield-focused investors usually start.",
             },
             {
