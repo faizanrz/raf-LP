@@ -25,7 +25,7 @@ export function sendMetaEvent(eventName: "Lead" | "ViewContent", extra: ExtraFie
   const fireBrowser = (tries = 0) => {
     const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
     if (fbq) fbq("track", eventName, {}, { eventID: eventId });
-    else if (tries < 20) setTimeout(() => fireBrowser(tries + 1), 250);
+    else if (tries < 60) setTimeout(() => fireBrowser(tries + 1), 250);
   };
   fireBrowser();
 
