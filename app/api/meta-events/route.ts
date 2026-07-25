@@ -52,6 +52,7 @@ export async function POST(req: NextRequest) {
   if (body.last_name) userData.ln = [hash(normalise(body.last_name))];
   if (body.fbp) userData.fbp = body.fbp;
   if (body.fbc) userData.fbc = body.fbc;
+  if (body.external_id) userData.external_id = [String(body.external_id).slice(0, 100)];
 
   const event = {
     event_name: eventName,

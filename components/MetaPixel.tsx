@@ -44,7 +44,24 @@ export default function MetaPixel() {
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '${PIXEL_ID}');
+          // Advanced matching: first-party external_id, plus lead details
+          // persisted after a form submit. The pixel hashes these itself.
+          var am = {};
+          try {
+            var eid = localStorage.getItem('raf_ext_id');
+            if (!eid) {
+              eid = (self.crypto && crypto.randomUUID) ? crypto.randomUUID()
+                : String(Date.now()) + Math.random().toString(36).slice(2);
+              localStorage.setItem('raf_ext_id', eid);
+            }
+            am.external_id = eid;
+            var pii = JSON.parse(localStorage.getItem('raf_lead_pii') || '{}');
+            if (pii.email) am.em = pii.email;
+            if (pii.phone) am.ph = pii.phone.replace(/[^0-9]/g, '');
+            if (pii.first_name) am.fn = pii.first_name;
+            if (pii.last_name) am.ln = pii.last_name;
+          } catch (e) {}
+          fbq('init', '${PIXEL_ID}', am);
           fbq('track', 'PageView');
         `}
       </Script>
