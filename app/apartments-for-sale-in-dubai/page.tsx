@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import LeadModal from "./LeadModal";
 import ContactRow from "@/components/ContactRow";
 import LeadForm from "@/components/LeadForm";
@@ -10,8 +10,8 @@ import SiteHeader from "@/components/SiteHeader";
 import StickyCta from "@/components/StickyCta";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -219,7 +219,7 @@ function CtaButton({ center = false }: { center?: boolean }) {
 
 export default function Page() {
   return (
-    <main className={`${montserrat.variable} font-montserrat theme-light bg-ink pb-16 text-cream md:pb-0`}>
+    <main className={`${inter.variable} font-inter theme-light bg-ink pb-16 text-cream md:pb-0`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -272,7 +272,7 @@ export default function Page() {
               <LeadModal
                 budgetOptions={GBP_BUDGETS}
                 ctaLabel="Request A Call Back"
-                panelScope={`${montserrat.variable} font-montserrat theme-light`}
+                panelScope={`${inter.variable} font-inter theme-light`}
               />
             </div>
           </Reveal>
@@ -284,7 +284,7 @@ export default function Page() {
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px lg:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.06} className="px-6 py-10 text-center">
-              <p className="display-bold text-4xl text-gold-bright lg:text-5xl">{s.n}</p>
+              <p className="display-bold price text-4xl text-gold-bright lg:text-5xl">{s.n}</p>
               <p className="mt-2 text-[0.78rem] uppercase tracking-[0.14em] text-muted">{s.d}</p>
             </Reveal>
           ))}
@@ -343,8 +343,8 @@ export default function Page() {
             </h3>
             <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {costCards.map((c) => (
-                <div key={c.d} className="border border-line bg-ink p-6">
-                  <p className="display-bold text-3xl text-gold-bright">{c.n}</p>
+                <div key={c.d} className="border border-line bg-panel p-6">
+                  <p className="display-bold price text-3xl text-gold-bright">{c.n}</p>
                   <p className="mt-3 text-[0.85rem] text-muted">{c.d}</p>
                 </div>
               ))}
@@ -370,11 +370,11 @@ export default function Page() {
               the median apartment service charge is around £3.45 per square foot, and the
               spread is wide:
             </p>
-            <ul className="mt-6 max-w-3xl divide-y divide-line border border-line">
+            <ul className="mt-6 max-w-3xl divide-y divide-line border border-line bg-panel">
               {serviceBands.map((b) => (
                 <li key={b.label} className="flex items-baseline justify-between gap-6 px-6 py-4">
                   <span className="text-[0.92rem] text-muted">{b.label}</span>
-                  <span className="display-bold shrink-0 text-right text-lg text-cream">
+                  <span className="display-bold price shrink-0 text-right text-lg text-cream">
                     {b.figure}
                   </span>
                 </li>
@@ -453,7 +453,7 @@ export default function Page() {
                   }`}
                 >
                   <p className="text-[0.95rem] font-medium text-cream">{a.area}</p>
-                  <p className="display-bold mt-3 text-4xl text-gold-bright">{a.psf}</p>
+                  <p className="display-bold price mt-3 text-4xl text-gold-bright">{a.psf}</p>
                   <p className="text-[0.72rem] uppercase tracking-[0.14em] text-muted">
                     per sq ft
                   </p>
@@ -484,7 +484,7 @@ export default function Page() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <div className="mt-14 border border-line bg-ink-2 p-8 lg:p-10">
+          <div className="mt-14 border border-line bg-panel p-8 lg:p-10">
             <p className="kicker">The liquidity case</p>
             <h3 className="display-bold mt-3 text-2xl text-cream sm:text-4xl">
               Why so many buyers choose JVC
@@ -590,7 +590,7 @@ export default function Page() {
         </Reveal>
         <div className="mt-12 grid gap-px overflow-hidden border border-line bg-line lg:grid-cols-3">
           {sizes.map((c, i) => (
-            <Reveal key={c.head} delay={i * 0.07} className="bg-ink p-8">
+            <Reveal key={c.head} delay={i * 0.07} className="bg-panel p-8">
               <h3 className="display-bold text-xl text-cream">{c.head}</h3>
               <p className="mt-3 text-[0.92rem] text-muted">{c.body}</p>
             </Reveal>

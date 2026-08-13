@@ -61,10 +61,25 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Montserrat page scope: overrides the body font and .display-bold within it. */
-.font-montserrat,
-.font-montserrat .display-bold {
-  font-family: var(--font-montserrat), "Avenir Next", "Segoe UI", sans-serif;
+/* Inter page scope: overrides the body font and .display-bold within it.
+   Brand weights: 400 body, 500/600 emphasis and headings, 700 reserved
+   for prices via .price. */
+.font-inter,
+.font-inter .display-bold {
+  font-family: var(--font-inter), "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.font-inter {
+  font-weight: 400;
+}
+
+.font-inter .display-bold {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.font-inter .price {
+  font-weight: 700;
 }
 
 /* ---------- light theme scope ----------
@@ -72,36 +87,46 @@ body {
    text-cream / border-line utility flips without touching dark pages.
    Gold deepens for contrast on white. */
 .theme-light {
-  --ink: #ffffff;
-  --ink-2: #f7f5f1;
-  --panel: #fbfaf7;
-  --line: rgba(16, 15, 20, 0.12);
-  --line-gold: rgba(150, 118, 60, 0.45);
-  --text: #17161b;
-  --muted: #6e6759;
-  --gold: #96763a;
-  --gold-bright: #7d6128;
+  --ink: #f6f5f1;
+  --ink-2: #f6f5f1;
+  --panel: #ffffff;
+  --line: #d8dddc;
+  --line-gold: rgba(23, 107, 112, 0.35);
+  --text: #17242b;
+  --muted: #66737a;
+  --gold: #176b70;
+  --gold-bright: #135c60;
+  --tint: #e7f0ef;
+}
+
+.theme-light .btn-gold {
+  background: #176b70;
+  color: #ffffff;
+}
+
+.theme-light .btn-gold:hover {
+  background: #135c60;
 }
 
 .theme-light .field {
-  background: rgba(16, 15, 20, 0.03);
-  border-color: rgba(16, 15, 20, 0.28);
+  background: #ffffff;
+  border-color: rgba(23, 36, 43, 0.3);
   font-weight: 500;
   font-size: 1.0625rem;
 }
 
 .theme-light .field:focus {
-  background: rgba(16, 15, 20, 0.05);
+  background: #ffffff;
   border-color: var(--gold);
 }
 
 .theme-light .field::placeholder {
-  color: rgba(23, 22, 27, 0.55);
+  color: rgba(23, 36, 43, 0.55);
   font-weight: 400;
 }
 
 .theme-light .budget-pill {
-  border-color: rgba(16, 15, 20, 0.28);
+  border-color: rgba(23, 36, 43, 0.3);
   color: var(--text);
   font-weight: 500;
   font-size: 0.875rem;
@@ -109,7 +134,8 @@ body {
 
 .theme-light .budget-pill.selected {
   border-color: var(--gold);
-  color: var(--gold-bright);
+  color: var(--gold);
+  background: var(--tint);
 }
 
 /* The shared white logo flips dark on light surfaces (sticky bar, footer).
@@ -122,15 +148,15 @@ body {
 /* Image sections keep the dark treatment: restore the dark palette
    inside .section-dark so overlays, text and forms read as on dark pages. */
 .theme-light .section-dark {
-  --ink: #0a0a0d;
-  --ink-2: #101016;
-  --panel: #14141b;
-  --line: rgba(255, 255, 255, 0.09);
-  --line-gold: rgba(198, 166, 106, 0.35);
-  --text: #eae5da;
-  --muted: #a39d90;
-  --gold: #c6a66a;
-  --gold-bright: #dcc08a;
+  --ink: #0d1518;
+  --ink-2: #101a1e;
+  --panel: #14201f;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-gold: rgba(111, 185, 188, 0.4);
+  --text: #f2f4f3;
+  --muted: #aab6b5;
+  --gold: #6fb9bc;
+  --gold-bright: #a5d8da;
 }
 
 .theme-light .section-dark .field {
