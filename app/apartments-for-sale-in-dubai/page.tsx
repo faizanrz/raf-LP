@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import LeadModal from "./LeadModal";
 import ModalCta from "./ModalCta";
+import RafVideo from "./RafVideo";
 import ContactRow from "@/components/ContactRow";
 import LeadForm from "@/components/LeadForm";
 import ParallaxImg from "@/components/ParallaxImg";
@@ -293,14 +294,7 @@ export default function Page() {
       <section className="border-b border-line bg-ink-2">
         <div className="mx-auto flex max-w-6xl justify-center px-6 pb-16 lg:pb-20">
           <Reveal className="flex w-full justify-center">
-            {/* Raw video tag: React SSR drops the muted attribute, which
-                browsers require in the initial HTML for autoplay to fire. */}
-            <div
-              className="flex w-full justify-center"
-              dangerouslySetInnerHTML={{
-                __html: `<video src="/video/raf-video.mp4" autoplay muted loop playsinline preload="metadata" aria-label="RAF Real Estate introduction video" class="h-[72vh] max-h-[680px] w-auto max-w-full border border-line bg-black object-contain"></video>`,
-              }}
-            />
+            <RafVideo />
           </Reveal>
         </div>
       </section>
