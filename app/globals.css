@@ -85,14 +85,31 @@ body {
 
 .theme-light .field {
   background: rgba(16, 15, 20, 0.03);
+  border-color: rgba(16, 15, 20, 0.28);
+  font-weight: 500;
+  font-size: 1.0625rem;
 }
 
 .theme-light .field:focus {
   background: rgba(16, 15, 20, 0.05);
+  border-color: var(--gold);
 }
 
 .theme-light .field::placeholder {
-  color: rgba(23, 22, 27, 0.35);
+  color: rgba(23, 22, 27, 0.55);
+  font-weight: 400;
+}
+
+.theme-light .budget-pill {
+  border-color: rgba(16, 15, 20, 0.28);
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.theme-light .budget-pill.selected {
+  border-color: var(--gold);
+  color: var(--gold-bright);
 }
 
 /* The shared white logo flips dark on light surfaces (sticky bar, footer).

@@ -234,12 +234,12 @@ export default function Page() {
           }),
         }}
       />
-      <SiteHeader />
       <StickyCta ctaLabel={CTA} />
       <WhatsAppFloat />
 
       {/* ============ 1. HERO ============ */}
       <section className="section-dark relative flex min-h-[100svh] items-center overflow-hidden text-cream">
+        <SiteHeader />
         <div className="absolute inset-0 overflow-hidden">
           <div className="hero-zoom absolute inset-0">
             <ParallaxImg
@@ -252,17 +252,19 @@ export default function Page() {
               drift={70}
             />
           </div>
-          <div className="absolute inset-0 bg-ink/65" />
+          <div className="absolute inset-0 bg-ink/80" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-4xl px-6 pb-20 pt-28 text-center">
           <Reveal>
-            <p className="kicker">RAF Real Estate · DLD licensed brokerage</p>
+            <p className="text-[0.85rem] font-semibold uppercase tracking-[0.3em] text-gold-bright sm:text-[0.95rem]">
+              RAF Real Estate · DLD licensed brokerage
+            </p>
             <h1 className="display-bold mt-6 text-5xl text-cream sm:text-7xl lg:text-8xl">
               Apartments for Sale <span className="text-gold-bright">in Dubai</span>
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl text-lg text-cream/90 sm:text-xl">
+            <p className="mx-auto mt-7 max-w-2xl text-xl font-medium text-cream sm:text-2xl">
               One-bedroom apartments in our Dubai projects start from £365,000. UK
               nationals own them freehold, and no residency is required to buy.
             </p>

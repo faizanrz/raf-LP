@@ -35,7 +35,7 @@ export default function LeadModal({ budgetOptions, ctaLabel, panelScope = "" }: 
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="btn-gold !w-full !py-4 text-center !text-[0.8rem] sm:!w-auto sm:px-12"
+        className="btn-gold !w-full !py-5 text-center !text-[1.05rem] !font-bold !tracking-[0.12em] sm:!w-auto sm:px-16"
       >
         {ctaLabel}
       </button>
