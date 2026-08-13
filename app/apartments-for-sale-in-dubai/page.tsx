@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import LeadModal from "./LeadModal";
 import ContactRow from "@/components/ContactRow";
 import LeadForm from "@/components/LeadForm";
 import ParallaxImg from "@/components/ParallaxImg";
@@ -251,46 +252,26 @@ export default function Page() {
               drift={70}
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/25" />
+          <div className="absolute inset-0 bg-ink/65" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" />
         </div>
 
-        <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 pb-16 pt-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8">
-          <div>
-            <Reveal>
-              <p className="kicker">RAF Real Estate · DLD licensed brokerage</p>
-              <h1 className="display-bold mt-5 text-5xl text-cream sm:text-7xl lg:text-8xl">
-                Apartments for Sale <span className="text-gold-bright">in Dubai</span>
-              </h1>
-              <div className="gold-rule mt-7" />
-              <p className="mt-7 max-w-xl text-lg text-cream/90 sm:text-xl">
-                One-bedroom apartments in our Dubai projects start from £365,000. UK
-                nationals own them freehold, and no residency is required to buy.
-              </p>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.15}>
-            <div id="lead-form" className="border border-line bg-ink/75 p-7 backdrop-blur-md sm:p-8">
-              <p className="display-bold text-2xl">See what your budget buys</p>
-              <p className="mb-6 mt-2 text-sm text-muted">
-                Tell us your budget and your plan. We call you back with real prices, in
-                pounds.
-              </p>
-              <LeadForm
-                formName="hero"
-                buttonLabel={CTA}
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 pb-20 pt-28 text-center">
+          <Reveal>
+            <p className="kicker">RAF Real Estate · DLD licensed brokerage</p>
+            <h1 className="display-bold mt-6 text-5xl text-cream sm:text-7xl lg:text-8xl">
+              Apartments for Sale <span className="text-gold-bright">in Dubai</span>
+            </h1>
+            <p className="mx-auto mt-7 max-w-2xl text-lg text-cream/90 sm:text-xl">
+              One-bedroom apartments in our Dubai projects start from £365,000. UK
+              nationals own them freehold, and no residency is required to buy.
+            </p>
+            <div className="mt-10 flex justify-center">
+              <LeadModal
                 budgetOptions={GBP_BUDGETS}
-                showPlan
+                ctaLabel="Request A Call Back"
+                panelScope={`${montserrat.variable} font-montserrat theme-light`}
               />
-              <div className="mt-4">
-                <p className="mb-2 text-[0.78rem] text-muted">Prefer to talk now?</p>
-                <ContactRow />
-              </div>
-              <p className="mt-3 text-[0.78rem] text-muted">
-                We are four hours ahead of the UK. Tell us a time and we will call to suit
-                you.
-              </p>
             </div>
           </Reveal>
         </div>
