@@ -526,18 +526,29 @@ export default function Page() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-14 border border-line-gold/60 bg-panel p-8">
-              <p className="text-[0.75rem] uppercase tracking-[0.2em] text-gold">
-                Gross yield is not net yield
-              </p>
-              <p className="mt-4 max-w-4xl text-[0.98rem] text-cream/90">
-                Worked example, using real Business Bay numbers. A 1,000 square foot
-                one-bedroom at £223,000, renting at £15,800 a year, shows a 7.1% gross
-                yield. Apply a £3.05 per square foot service charge and you lose £3,050 a
-                year, and the yield drops to 5.7% before you account for maintenance,
-                insurance or vacancy. A gross yield quoted at 8% is not 8% in the bank. On
-                the call, we show you the net on the units you are actually considering.
-              </p>
+            <div className="mt-14 grid overflow-hidden border border-line-gold/60 bg-panel lg:grid-cols-[0.8fr_1.2fr]">
+              <div className="relative min-h-[220px] overflow-hidden lg:min-h-0">
+                <img
+                  src="/img/yield-interior-1200.jpg"
+                  alt="Living room of a modern apartment with panoramic windows in the evening"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-8">
+                <p className="text-[0.75rem] uppercase tracking-[0.2em] text-gold">
+                  Gross yield is not net yield
+                </p>
+                <p className="mt-4 text-[0.98rem] text-cream/90">
+                  Worked example, using real Business Bay numbers. A 1,000 square foot
+                  one-bedroom at £223,000, renting at £15,800 a year, shows a 7.1% gross
+                  yield. Apply a £3.05 per square foot service charge and you lose £3,050
+                  a year, and the yield drops to 5.7% before you account for maintenance,
+                  insurance or vacancy. A gross yield quoted at 8% is not 8% in the bank.
+                  On the call, we show you the net on the units you are actually
+                  considering.
+                </p>
+              </div>
             </div>
           </Reveal>
           <Reveal>
@@ -627,7 +638,16 @@ export default function Page() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <div className="mt-14 border border-line bg-panel p-8 lg:p-10">
+          <div className="mt-14 overflow-hidden border border-line bg-panel">
+            <div className="relative h-[240px] overflow-hidden sm:h-[300px]">
+              <img
+                src="/img/jvc-aerial-1200.jpg"
+                alt="Aerial view of a Dubai residential community with modern buildings and greenery"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-8 lg:p-10">
             <p className="kicker">The liquidity case</p>
             <h3 className="display-bold mt-3 text-2xl text-cream sm:text-4xl">
               Why so many buyers choose JVC
@@ -654,6 +674,7 @@ export default function Page() {
               For a buyer who wants to be able to sell again without difficulty, that
               liquidity is the thing that matters most.
             </p>
+            </div>
           </div>
         </Reveal>
         <Reveal>
@@ -755,6 +776,14 @@ export default function Page() {
               <h2 className="display-bold mt-4 text-4xl sm:text-5xl">
                 Why buyers start with one and end with several
               </h2>
+              <div className="relative mt-8 hidden h-[220px] overflow-hidden border border-line lg:block">
+                <img
+                  src="/img/portfolio-keys-1200.jpg"
+                  alt="Agent handing over the keys of a new apartment to a buyer"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </Reveal>
             <Reveal delay={0.1}>
               <div className="space-y-4 text-muted">
