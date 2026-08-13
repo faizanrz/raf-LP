@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import LeadModal from "./LeadModal";
+import ModalCta from "./ModalCta";
 import ContactRow from "@/components/ContactRow";
 import LeadForm from "@/components/LeadForm";
 import ParallaxImg from "@/components/ParallaxImg";
@@ -46,20 +47,20 @@ const CTA = "Request my call back";
 
 const callItems = [
   {
-    title: "What your budget buys today",
-    body: "Units move week to week, so we confirm what is genuinely open across our projects on the day we speak, matched to your budget band.",
+    title: "What is the right strategy for you",
+    body: "There are thousands of apartments in Dubai that you can browse but which one actually fits your objective and requirements? We help you figure it out.",
   },
   {
-    title: "The net yield, not the headline yield",
-    body: "We calculate the yield on the specific units we show you, after service charges. The number that reaches your account, not the one in the advert.",
+    title: "What your budget buys today",
+    body: "Units move week to week, so we confirm what is genuinely open across Dubai projects on the day we speak, matched to your budget band.",
   },
   {
     title: "The full cost to the pound",
     body: "Purchase price, DLD transfer fee, commission, registration. The complete acquisition figure before you commit to anything.",
   },
   {
-    title: "Negotiation done for you",
-    body: "Asking prices in Dubai carry room to move. We negotiate on your behalf, and we know where the room is.",
+    title: "The net yield, not the headline yield",
+    body: "We calculate the yield on the specific units we show you, after service charges. The number that reaches your account, not the one in the advert.",
   },
 ];
 
@@ -200,12 +201,10 @@ const faq = [
 function CtaButton({ center = false }: { center?: boolean }) {
   return (
     <div className={`mt-12 flex ${center ? "justify-center" : ""}`}>
-      <a
-        href="#get-prices"
+      <ModalCta
+        label={CTA}
         className="btn-gold !w-full !py-4 text-center !text-[0.8rem] sm:!w-auto sm:px-12"
-      >
-        {CTA}
-      </a>
+      />
     </div>
   );
 }
@@ -227,7 +226,7 @@ export default function Page() {
           }),
         }}
       />
-      <StickyCta ctaLabel={CTA} />
+      <StickyCta ctaLabel={CTA} modalEvent="raf:lead-modal-open" />
       <WhatsAppFloat />
 
       {/* ============ 1. HERO ============ */}
@@ -294,7 +293,7 @@ export default function Page() {
       <section className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-28">
         <Reveal>
           <p className="kicker">One call, real numbers</p>
-          <h2 className="display-bold mt-4 max-w-2xl text-4xl sm:text-5xl lg:text-6xl">
+          <h2 className="display-bold mt-4 text-4xl sm:text-5xl lg:text-6xl">
             What you get on the call
           </h2>
           <p className="mt-6 max-w-2xl text-lg text-muted">
@@ -561,12 +560,10 @@ export default function Page() {
                     </div>
                     <p className="mt-5 text-[0.9rem] text-muted">{p.payment}</p>
                     <p className="mt-4 text-[0.95rem] text-cream/90">{p.positioning}</p>
-                    <a
-                      href="#get-prices"
+                    <ModalCta
+                      label="Get more details"
                       className="btn-gold mt-6 !w-full !py-3.5 text-center !text-[0.78rem] sm:!w-auto sm:px-10"
-                    >
-                      Get more details
-                    </a>
+                    />
                   </div>
                 </div>
               </Reveal>

@@ -14,8 +14,17 @@ type Props = {
   panelScope?: string;
 };
 
+/** Any element on the page can open the modal by dispatching this event. */
+export const OPEN_LEAD_MODAL_EVENT = "raf:lead-modal-open";
+
 export default function LeadModal({ budgetOptions, ctaLabel, panelScope = "" }: Props) {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onOpen = () => setOpen(true);
+    window.addEventListener(OPEN_LEAD_MODAL_EVENT, onOpen);
+    return () => window.removeEventListener(OPEN_LEAD_MODAL_EVENT, onOpen);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
