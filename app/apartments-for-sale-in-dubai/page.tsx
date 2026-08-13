@@ -316,7 +316,7 @@ export default function Page() {
           ))}
         </div>
         <Reveal>
-          <CtaButton />
+          <CtaButton center />
         </Reveal>
       </section>
 
