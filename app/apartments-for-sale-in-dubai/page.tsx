@@ -44,13 +44,6 @@ const GBP_BUDGETS = ["Under £400,000", "£400,000 to £600,000", "£600,000 to 
 
 const CTA = "Request my call back";
 
-const stats = [
-  { n: "£365,000", d: "one-bed entry price" },
-  { n: "6% to 8%", d: "total buying costs" },
-  { n: "£286 / sqft", d: "JVC entry, DLD records" },
-  { n: "0", d: "UK-style stamp duty" },
-];
-
 const callItems = [
   {
     title: "What your budget buys today",
@@ -279,15 +272,21 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============ 2. STAT STRIP ============ */}
+      {/* ============ 2. MARKET STATEMENT ============ */}
       <section className="border-b border-line bg-ink-2">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.06} className="px-6 py-10 text-center">
-              <p className="display-bold price text-4xl text-gold-bright lg:text-5xl">{s.n}</p>
-              <p className="mt-2 text-[0.78rem] uppercase tracking-[0.14em] text-muted">{s.d}</p>
-            </Reveal>
-          ))}
+        <div className="mx-auto max-w-4xl px-6 py-16 text-center lg:py-20">
+          <Reveal>
+            <p className="display-bold price text-5xl text-gold-bright sm:text-6xl lg:text-7xl">
+              £67 Billion
+            </p>
+            <p className="mx-auto mt-5 max-w-2xl text-lg font-medium text-cream sm:text-xl">
+              worth of property transactions have already happened in 2026 in Dubai so
+              far.
+            </p>
+            <p className="mt-2 text-lg font-semibold text-gold sm:text-xl">
+              You are missing out.
+            </p>
+          </Reveal>
         </div>
       </section>
 
