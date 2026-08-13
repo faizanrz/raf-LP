@@ -799,12 +799,10 @@ export default function Page() {
                   portfolio&quot; on the form. We plan the entry differently when it is the
                   first of several.
                 </p>
+                <CtaButton />
               </div>
             </Reveal>
           </div>
-          <Reveal>
-            <CtaButton center />
-          </Reveal>
         </div>
       </section>
 
