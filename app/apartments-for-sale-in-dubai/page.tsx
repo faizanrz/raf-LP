@@ -344,32 +344,11 @@ export default function Page() {
               ))}
             </div>
 
-            <div className="mt-10 border-l-2 border-gold bg-panel p-6">
-              <p className="font-semibold text-cream">⚖️ What this means in reality</p>
-              <p className="mt-3 text-[0.95rem] text-muted">
-                In the UK, taxes compound over time.
-                <br />
-                <span className="font-medium text-cream">
-                  In the UAE, returns compound instead.
-                </span>
-              </p>
-              <p className="mt-3 text-[0.95rem] text-muted">
-                This isn’t about chasing yield alone. It’s about how much of your upside
-                you actually keep.
-              </p>
-            </div>
-
-            <div className="mt-6 border-l-2 border-line bg-panel p-6">
-              <p className="font-semibold text-cream">And finally ✨</p>
-              <p className="mt-3 text-[0.95rem] text-muted">
-                Both markets have value. But when investors compare systems, not
-                headlines, the difference becomes clear.
-              </p>
-              <p className="mt-3 text-[0.95rem] text-muted">
-                Taxes don’t just affect profits.{" "}
-                <span className="font-medium text-cream">They shape strategy.</span>
-              </p>
-            </div>
+            <h3 className="display-bold mt-10 text-2xl text-cream sm:text-3xl">
+              In the UK, taxes compound over time.
+              <br />
+              <span className="text-gold">In the UAE, returns compound instead.</span>
+            </h3>
 
             <div className="mt-10">
               <ModalCta
