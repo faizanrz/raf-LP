@@ -297,7 +297,7 @@ export default function Page() {
             <h2 className="display-bold text-4xl sm:text-5xl">
               Why Buy an Apartment in 🇦🇪 Dubai?
             </h2>
-            <div className="mt-9 space-y-6">
+            <div className="mt-9 space-y-4">
               {[
                 {
                   head: "No capital gains tax on property.",

@@ -43,7 +43,7 @@ export default function RafVideo() {
         controls
         preload="metadata"
         aria-label="RAF Real Estate introduction video"
-        className="h-[72vh] max-h-[680px] w-auto max-w-full border border-line bg-black object-contain"
+        className="h-[85vh] max-h-[820px] w-auto max-w-full border border-line bg-black object-contain"
       />
       {showOverlay && (
         <button
