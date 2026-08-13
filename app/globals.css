@@ -61,6 +61,12 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* Montserrat page scope: overrides the body font and .display-bold within it. */
+.font-montserrat,
+.font-montserrat .display-bold {
+  font-family: var(--font-montserrat), "Avenir Next", "Segoe UI", sans-serif;
+}
+
 .kicker {
   font-size: 0.6875rem;
   letter-spacing: 0.32em;

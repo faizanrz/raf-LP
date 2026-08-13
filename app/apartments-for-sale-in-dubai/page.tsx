@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
 import ContactRow from "@/components/ContactRow";
 import LeadForm from "@/components/LeadForm";
 import ParallaxImg from "@/components/ParallaxImg";
@@ -7,6 +8,12 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import StickyCta from "@/components/StickyCta";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Apartments for Sale in Dubai | Real Prices in Pounds for UK Buyers",
@@ -211,7 +218,7 @@ function CtaButton({ center = false }: { center?: boolean }) {
 
 export default function Page() {
   return (
-    <main className="bg-ink pb-16 text-cream md:pb-0">
+    <main className={`${montserrat.variable} font-montserrat bg-ink pb-16 text-cream md:pb-0`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
