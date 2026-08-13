@@ -313,8 +313,11 @@ export default function Page() {
                 },
                 {
                   head: "Clear ownership framework.",
+                  lines: ["Freehold titles."],
+                },
+                {
+                  head: "Buyer security.",
                   lines: [
-                    "Freehold titles.",
                     "Government-regulated escrow accounts on off-plan projects protect buyer funds.",
                   ],
                 },
