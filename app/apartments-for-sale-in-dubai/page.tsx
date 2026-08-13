@@ -320,6 +320,73 @@ export default function Page() {
         </Reveal>
       </section>
 
+      {/* ============ WHY RAF ============ */}
+      <section className="section-dark relative overflow-hidden text-cream">
+        <ParallaxImg
+          src="/img/why-raf-1920.jpg"
+          srcSet="/img/why-raf-960.jpg 960w, /img/why-raf-1920.jpg 1920w"
+          sizes="100vw"
+          alt="Dubai Business Bay skyline illuminated at night"
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="lazy"
+          drift={60}
+        />
+        <div className="absolute inset-0 bg-ink/80" />
+        <div className="relative mx-auto max-w-4xl px-6 py-24 text-center lg:py-32">
+          <Reveal>
+            <h2 className="display-bold text-4xl text-cream sm:text-5xl lg:text-6xl">
+              Why RAF Real Estate?
+            </h2>
+            <p className="mx-auto mt-6 max-w-3xl text-lg font-medium text-cream/95 sm:text-xl">
+              With 40 years of combined experience in the U.K. real estate industry, in
+              the last decade we have now introduced real estate investment opportunities
+              in the UAE. We understand what would be the right strategy for you if you
+              are looking to buy an apartment in Dubai.
+            </p>
+            <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
+              <div className="flex items-center gap-4 border border-line bg-ink/60 px-6 py-5 text-left backdrop-blur-sm">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="shrink-0 text-gold"
+                  aria-hidden
+                >
+                  <path d="M12 2l7 4v6c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-4z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+                <p className="font-semibold">DLD Licensed Broker in the UAE</p>
+              </div>
+              <div className="flex items-center gap-4 border border-line bg-ink/60 px-6 py-5 text-left backdrop-blur-sm">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="shrink-0 text-gold"
+                  aria-hidden
+                >
+                  <circle cx="12" cy="8" r="6" />
+                  <path d="M15.5 13l1.5 9-5-3-5 3 1.5-9" />
+                </svg>
+                <p className="font-semibold">40+ Years of Combined Experience</p>
+              </div>
+            </div>
+            <div className="mt-10 flex justify-center">
+              <ModalCta
+                label={CTA}
+                className="btn-gold !w-full !py-4 text-center !text-[0.8rem] sm:!w-auto sm:px-12"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ============ 4. WHAT IT COSTS ============ */}
       <section className="border-y border-line bg-ink-2">
         <div className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-28">
