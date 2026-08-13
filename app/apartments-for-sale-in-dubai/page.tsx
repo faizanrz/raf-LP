@@ -218,7 +218,7 @@ function CtaButton({ center = false }: { center?: boolean }) {
 
 export default function Page() {
   return (
-    <main className={`${montserrat.variable} font-montserrat bg-ink pb-16 text-cream md:pb-0`}>
+    <main className={`${montserrat.variable} font-montserrat theme-light bg-ink pb-16 text-cream md:pb-0`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

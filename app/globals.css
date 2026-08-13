@@ -67,6 +67,39 @@ body {
   font-family: var(--font-montserrat), "Avenir Next", "Segoe UI", sans-serif;
 }
 
+/* ---------- light theme scope ----------
+   Redefines the palette tokens inside a wrapper, so every bg-ink /
+   text-cream / border-line utility flips without touching dark pages.
+   Gold deepens for contrast on white. */
+.theme-light {
+  --ink: #ffffff;
+  --ink-2: #f7f5f1;
+  --panel: #fbfaf7;
+  --line: rgba(16, 15, 20, 0.12);
+  --line-gold: rgba(150, 118, 60, 0.45);
+  --text: #17161b;
+  --muted: #6e6759;
+  --gold: #96763a;
+  --gold-bright: #7d6128;
+}
+
+.theme-light .field {
+  background: rgba(16, 15, 20, 0.03);
+}
+
+.theme-light .field:focus {
+  background: rgba(16, 15, 20, 0.05);
+}
+
+.theme-light .field::placeholder {
+  color: rgba(23, 22, 27, 0.35);
+}
+
+/* The shared header/sticky-bar/footer logo is white; flip it to dark. */
+.theme-light img[src*="raf-logo-white"] {
+  filter: invert(1) brightness(0.15);
+}
+
 .kicker {
   font-size: 0.6875rem;
   letter-spacing: 0.32em;
