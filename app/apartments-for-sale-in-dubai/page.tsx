@@ -289,6 +289,22 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ============ VIDEO ============ */}
+      <section className="border-b border-line bg-ink-2">
+        <div className="mx-auto flex max-w-6xl justify-center px-6 pb-16 lg:pb-20">
+          <Reveal className="flex w-full justify-center">
+            {/* Raw video tag: React SSR drops the muted attribute, which
+                browsers require in the initial HTML for autoplay to fire. */}
+            <div
+              className="flex w-full justify-center"
+              dangerouslySetInnerHTML={{
+                __html: `<video src="/video/raf-video.mp4" autoplay muted loop playsinline preload="metadata" aria-label="RAF Real Estate introduction video" class="h-[72vh] max-h-[680px] w-auto max-w-full border border-line bg-black object-contain"></video>`,
+              }}
+            />
+          </Reveal>
+        </div>
+      </section>
+
       {/* ============ 3. WHAT HAPPENS ON THE CALL ============ */}
       <section className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-28">
         <Reveal>
