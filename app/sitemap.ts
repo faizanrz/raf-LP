@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     "/dubai-villas-for-sale/",
     "/dubai-apartments-for-sale/",
+    "/apartments-for-sale-in-dubai/",
     "/buying-property-in-dubai-from-uk/",
     "/risks-of-buying-property-in-dubai/",
   ].map((path) => ({

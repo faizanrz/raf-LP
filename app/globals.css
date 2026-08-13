@@ -53,6 +53,14 @@ body {
   letter-spacing: 0.005em;
 }
 
+/* Bold sans display, used on pages that skip the serif look. */
+.display-bold {
+  font-family: var(--font-body), "Avenir Next", "Segoe UI", sans-serif;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
 .kicker {
   font-size: 0.6875rem;
   letter-spacing: 0.32em;
