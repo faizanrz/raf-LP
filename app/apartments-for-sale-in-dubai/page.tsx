@@ -238,7 +238,7 @@ export default function Page() {
       <WhatsAppFloat />
 
       {/* ============ 1. HERO ============ */}
-      <section className="relative flex min-h-[100svh] items-center overflow-hidden">
+      <section className="section-dark relative flex min-h-[100svh] items-center overflow-hidden text-cream">
         <div className="absolute inset-0 overflow-hidden">
           <div className="hero-zoom absolute inset-0">
             <ParallaxImg
@@ -421,7 +421,7 @@ export default function Page() {
       </section>
 
       {/* ============ FULL-BLEED DIVIDER ============ */}
-      <section className="relative h-[52vh] min-h-[380px] overflow-hidden">
+      <section className="section-dark relative h-[52vh] min-h-[380px] overflow-hidden">
         <ParallaxImg
           src="/img/apt-canal-1400.webp"
           alt="Apartment terraces above a canal at sunset"
@@ -721,7 +721,7 @@ export default function Page() {
       </section>
 
       {/* ============ 11. CLOSING FORM ============ */}
-      <section id="get-prices" className="relative scroll-mt-16 overflow-hidden">
+      <section id="get-prices" className="section-dark relative scroll-mt-16 overflow-hidden text-cream">
         <ParallaxImg
           src="/img/hero-apartments-1920.webp"
           alt="Apartment building beside a lagoon at dusk"

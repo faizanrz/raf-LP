@@ -95,9 +95,37 @@ body {
   color: rgba(23, 22, 27, 0.35);
 }
 
-/* The shared header/sticky-bar/footer logo is white; flip it to dark. */
-.theme-light img[src*="raf-logo-white"] {
+/* The shared white logo flips dark on light surfaces (sticky bar, footer).
+   The absolute header over the dark hero keeps the white original. */
+.theme-light footer img[src*="raf-logo-white"],
+.theme-light .fixed img[src*="raf-logo-white"] {
   filter: invert(1) brightness(0.15);
+}
+
+/* Image sections keep the dark treatment: restore the dark palette
+   inside .section-dark so overlays, text and forms read as on dark pages. */
+.theme-light .section-dark {
+  --ink: #0a0a0d;
+  --ink-2: #101016;
+  --panel: #14141b;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-gold: rgba(198, 166, 106, 0.35);
+  --text: #eae5da;
+  --muted: #a39d90;
+  --gold: #c6a66a;
+  --gold-bright: #dcc08a;
+}
+
+.theme-light .section-dark .field {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.theme-light .section-dark .field:focus {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.theme-light .section-dark .field::placeholder {
+  color: rgba(234, 229, 218, 0.4);
 }
 
 .kicker {
