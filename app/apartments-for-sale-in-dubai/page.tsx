@@ -290,10 +290,96 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============ VIDEO ============ */}
+      {/* ============ WHY BUY IN DUBAI + VIDEO ============ */}
       <section className="border-b border-line bg-ink-2">
-        <div className="mx-auto flex max-w-6xl justify-center px-6 pb-16 lg:pb-20">
-          <Reveal className="flex w-full justify-center">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8 lg:py-24">
+          <Reveal>
+            <h2 className="display-bold text-4xl sm:text-5xl">
+              Why Buy an Apartment in 🇦🇪 Dubai?
+            </h2>
+            <div className="mt-9 space-y-6">
+              {[
+                {
+                  head: "No capital gains tax on property.",
+                  lines: ["What you make on the sale stays yours."],
+                },
+                {
+                  head: "No inheritance tax in most cases.",
+                  lines: ["Assets can be structured and passed on efficiently."],
+                },
+                {
+                  head: "Rental income is not taxed for individuals.",
+                  lines: ["Your yield is your yield."],
+                },
+                {
+                  head: "Clear ownership framework.",
+                  lines: [
+                    "Freehold titles.",
+                    "Government-regulated escrow accounts on off-plan projects protect buyer funds.",
+                  ],
+                },
+              ].map((b) => (
+                <div key={b.head} className="flex gap-4">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="mt-1 shrink-0 text-gold"
+                    aria-hidden
+                  >
+                    <path d="M4 12l6 6L20 6" />
+                  </svg>
+                  <div>
+                    <h3 className="font-semibold text-cream">{b.head}</h3>
+                    {b.lines.map((l) => (
+                      <p key={l} className="mt-0.5 text-[0.95rem] text-muted">
+                        {l}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 border-l-2 border-gold bg-panel p-6">
+              <p className="font-semibold text-cream">⚖️ What this means in reality</p>
+              <p className="mt-3 text-[0.95rem] text-muted">
+                In the UK, taxes compound over time.
+                <br />
+                <span className="font-medium text-cream">
+                  In the UAE, returns compound instead.
+                </span>
+              </p>
+              <p className="mt-3 text-[0.95rem] text-muted">
+                This isn’t about chasing yield alone. It’s about how much of your upside
+                you actually keep.
+              </p>
+            </div>
+
+            <div className="mt-6 border-l-2 border-line bg-panel p-6">
+              <p className="font-semibold text-cream">And finally ✨</p>
+              <p className="mt-3 text-[0.95rem] text-muted">
+                Both markets have value. But when investors compare systems, not
+                headlines, the difference becomes clear.
+              </p>
+              <p className="mt-3 text-[0.95rem] text-muted">
+                Taxes don’t just affect profits.{" "}
+                <span className="font-medium text-cream">They shape strategy.</span>
+              </p>
+            </div>
+
+            <div className="mt-10">
+              <ModalCta
+                label={CTA}
+                className="btn-gold !w-full !py-4 text-center !text-[0.8rem] sm:!w-auto sm:px-12"
+              />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1} className="flex justify-center lg:justify-end">
             <RafVideo />
           </Reveal>
         </div>
