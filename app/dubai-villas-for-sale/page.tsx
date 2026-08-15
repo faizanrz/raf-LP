@@ -3,7 +3,6 @@ import ContactRow from "@/components/ContactRow";
 import InlineCta from "@/components/InlineCta";
 import ParallaxImg from "@/components/ParallaxImg";
 import StickyCta from "@/components/StickyCta";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import LeadForm from "@/components/LeadForm";
 import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
@@ -162,7 +161,6 @@ export default function Page() {
     <main className="bg-ink pb-16 text-cream md:pb-0">
       <SiteHeader />
       <StickyCta ctaLabel="Request a call-back" />
-      <WhatsAppFloat />
 
       {/* ============ HERO ============ */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden">

@@ -5,7 +5,6 @@ import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import StickyCta from "@/components/StickyCta";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 export const metadata: Metadata = {
   title: "The Risks of Buying Property in Dubai | And How UK Buyers Manage Them",
@@ -83,7 +82,6 @@ export default function Page() {
       />
       <SiteHeader />
       <StickyCta ctaLabel="Speak to a broker" />
-      <WhatsAppFloat />
 
       {/* ============ HERO: TYPE ONLY, NO IMAGE, NO FORM ============ */}
       <section className="relative flex min-h-[88svh] items-center overflow-hidden border-b border-line">

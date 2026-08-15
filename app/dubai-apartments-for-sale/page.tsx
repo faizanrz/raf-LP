@@ -7,7 +7,6 @@ import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import StickyCta from "@/components/StickyCta";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 export const metadata: Metadata = {
   title: "Apartments for Sale in Dubai | Prices, Yields & Costs for UK Buyers",
@@ -106,7 +105,6 @@ export default function Page() {
       />
       <SiteHeader />
       <StickyCta ctaLabel="Request a call-back" />
-      <WhatsAppFloat />
 
       {/* ============ HERO ============ */}
       <section className="relative flex min-h-[100svh] items-center overflow-hidden">

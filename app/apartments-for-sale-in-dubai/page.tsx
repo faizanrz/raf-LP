@@ -10,7 +10,6 @@ import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import StickyCta from "@/components/StickyCta";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -228,7 +227,6 @@ export default function Page() {
         }}
       />
       <StickyCta ctaLabel={CTA} modalEvent="raf:lead-modal-open" />
-      <WhatsAppFloat />
 
       {/* ============ 1. HERO ============ */}
       <section className="section-dark relative flex min-h-[100svh] items-center overflow-hidden text-cream">

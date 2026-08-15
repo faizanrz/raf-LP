@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
+import Script from "next/script";
 import GoogleTag from "@/components/GoogleTag";
 import LeadNudgeScript from "@/components/LeadNudgeScript";
 import MetaPixel from "@/components/MetaPixel";
@@ -41,6 +42,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <LeadNudgeScript />
+        {/* LeadNudge WhatsApp float, replaces the old hand-built widget.
+            lazyOnload, same as GA/Meta, per the site-wide PSI rule. */}
+        <Script src="https://raf.leadnudge.ae/api/widget/whatsapp" strategy="lazyOnload" />
         <GoogleTag />
         <MetaPixel />
       </body>

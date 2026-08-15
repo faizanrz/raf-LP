@@ -3,7 +3,6 @@ import ContactRow from "@/components/ContactRow";
 import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -16,7 +15,6 @@ export default function Page() {
   return (
     <main className="flex min-h-screen flex-col bg-ink text-cream">
       <SiteHeader />
-      <WhatsAppFloat />
 
       <section className="relative flex flex-1 items-center overflow-hidden border-b border-line">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(198,166,106,0.08),transparent_55%)]" />
