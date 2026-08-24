@@ -8,7 +8,10 @@ export const site = {
   brand: "RAF Real Estate",
   phoneDisplay: "+971 52 836 1591",
   phoneTel: "+971528361591",
-  whatsapp: "https://wa.me/971528361591",
+  // WhatsApp is a DIFFERENT number from the voice line, confirmed with RAF
+  // Aug 2026. It matches the number the LeadNudge WhatsApp floater is
+  // configured with, so every WhatsApp route on the site lands in one inbox.
+  whatsapp: "https://wa.me/971503768989",
   dldLicence: "DLD Licence No. 1180305",
   reraOrn: "RERA ORN 47185",
   // GBP conversions across all pages use this rate. Update on publish.

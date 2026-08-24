@@ -299,6 +299,30 @@ body {
   transform: translateY(1px);
 }
 
+/* WhatsApp CTA. Same geometry and weight as .btn-gold so the two hero
+   actions read as equal choices, in WhatsApp's own green so the action is
+   unmistakable. Green is constant across the dark and light scopes. */
+.btn-whatsapp {
+  /* No display rule: the component sets inline-flex so the glyph and the
+     label sit on one line. */
+  width: 100%;
+  background: #25d366;
+  color: #0b1f14;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.btn-whatsapp:hover {
+  background: #1fb757;
+}
+.btn-whatsapp:active {
+  transform: translateY(1px);
+}
+
 /* ---------- tables ---------- */
 
 .lux-table {

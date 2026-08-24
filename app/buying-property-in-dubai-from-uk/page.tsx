@@ -836,7 +836,7 @@ export default function Page() {
       <SiteFooter
         links={[
           { href: "/dubai-villas-for-sale/", label: "Villas for sale in Dubai" },
-          { href: "/dubai-apartments-for-sale/", label: "Apartments for sale in Dubai" },
+          { href: "/apartments-for-sale-in-dubai/", label: "Apartments for sale in Dubai" },
           { href: "/risks-of-buying-property-in-dubai/", label: "The risks of buying property in Dubai" },
         ]}
       />

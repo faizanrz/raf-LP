@@ -13,6 +13,8 @@ type Props = {
   showBudget?: boolean;
   budgetOptions?: string[]; // override the default AED bands (e.g. GBP bands)
   showPlan?: boolean; // "What's the plan?" qualifier, feeds lead scoring
+  showEmail?: boolean; // off on low-friction pages, name + phone only
+  showNote?: boolean; // optional free-text "What are you looking for?"
   compact?: boolean;
 };
 
@@ -29,6 +31,8 @@ export default function LeadForm({
   showBudget = true,
   budgetOptions = BUDGETS,
   showPlan = false,
+  showEmail = true,
+  showNote = false,
 }: Props) {
   const router = useRouter();
   const [budget, setBudget] = useState<string>("");
@@ -68,6 +72,19 @@ export default function LeadForm({
       first_name: nameParts[0],
       last_name: nameParts.slice(1).join(" "),
     });
+    // Google Ads / GA4 conversion. The /thank-you/ pageview is still the
+    // primary conversion, but App Router navigations rely on GA4 enhanced
+    // measurement firing on history change, so send an explicit key event
+    // here too. Both can be imported into Google Ads; use one of them.
+    const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+    if (typeof gtag === "function") {
+      gtag("event", "generate_lead", {
+        form_name: formName,
+        page_path: window.location.pathname,
+        currency: "GBP",
+        value: 1,
+      });
+    }
     // Dedicated confirmation page, used as the Google Ads conversion event.
     router.push("/thank-you/");
   }
@@ -83,8 +100,12 @@ export default function LeadForm({
       <label className="sr-only" htmlFor={`${formName}-name`}>Name</label>
       <input id={`${formName}-name`} name="name" required autoComplete="name" placeholder="Name" className="field" />
 
-      <label className="sr-only" htmlFor={`${formName}-email`}>Email</label>
-      <input id={`${formName}-email`} name="email" type="email" required autoComplete="email" placeholder="Email" className="field" />
+      {showEmail && (
+        <>
+          <label className="sr-only" htmlFor={`${formName}-email`}>Email</label>
+          <input id={`${formName}-email`} name="email" type="email" required autoComplete="email" placeholder="Email" className="field" />
+        </>
+      )}
 
       <label className="sr-only" htmlFor={`${formName}-phone`}>Phone</label>
       <input
@@ -97,6 +118,21 @@ export default function LeadForm({
         placeholder="+44 7700 000000"
         className="field"
       />
+
+      {showNote && (
+        <>
+          <label className="sr-only" htmlFor={`${formName}-note`}>
+            What are you looking for?
+          </label>
+          <textarea
+            id={`${formName}-note`}
+            name="note"
+            rows={3}
+            placeholder="What are you looking for? (optional)"
+            className="field resize-none"
+          />
+        </>
+      )}
 
       {showBudget && (
         <fieldset>

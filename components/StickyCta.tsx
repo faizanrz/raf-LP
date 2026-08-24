@@ -46,6 +46,14 @@ export default function StickyCta({
             >
               {site.phoneDisplay}
             </a>
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden text-[0.8125rem] tracking-[0.12em] text-cream/85 transition-colors hover:text-gold-bright lg:inline"
+            >
+              WhatsApp
+            </a>
             {openModal ? (
               <button
                 type="button"

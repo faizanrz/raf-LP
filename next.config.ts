@@ -13,6 +13,15 @@ const nextConfig: NextConfig = {
         destination: "/dubai-villas-for-sale/",
         permanent: true,
       },
+      {
+        // All apartment and flat paid traffic now lands on one page.
+        // Explicit 301 rather than `permanent: true`, which emits a 308.
+        // The un-slashed form is normalised to this one first by
+        // `trailingSlash`, so a single rule covers both.
+        source: "/dubai-apartments-for-sale/",
+        destination: "/apartments-for-sale-in-dubai/",
+        statusCode: 301,
+      },
     ];
   },
 };

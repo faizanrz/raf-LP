@@ -6,8 +6,9 @@ import ContactRow from "@/components/ContactRow";
 import LeadForm from "@/components/LeadForm";
 
 type Props = {
-  budgetOptions: string[];
   ctaLabel: string;
+  /** Classes for the trigger button, so the hero can size it beside WhatsApp. */
+  triggerClassName?: string;
   /** Theme and font scope classes for the panel. The modal portals to
       document.body, outside the page's .theme-light/.font-montserrat
       wrapper, so the scopes must be re-applied here. */
@@ -17,7 +18,11 @@ type Props = {
 /** Any element on the page can open the modal by dispatching this event. */
 export const OPEN_LEAD_MODAL_EVENT = "raf:lead-modal-open";
 
-export default function LeadModal({ budgetOptions, ctaLabel, panelScope = "" }: Props) {
+export default function LeadModal({
+  ctaLabel,
+  triggerClassName = "btn-gold !w-full !py-5 text-center !text-[1.05rem] !font-bold !tracking-[0.12em] sm:!w-auto sm:px-16",
+  panelScope = "",
+}: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -41,11 +46,7 @@ export default function LeadModal({ budgetOptions, ctaLabel, panelScope = "" }: 
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="btn-gold !w-full !py-5 text-center !text-[1.05rem] !font-bold !tracking-[0.12em] sm:!w-auto sm:px-16"
-      >
+      <button type="button" onClick={() => setOpen(true)} className={triggerClassName}>
         {ctaLabel}
       </button>
 
@@ -74,16 +75,17 @@ export default function LeadModal({ budgetOptions, ctaLabel, panelScope = "" }: 
                   <path d="M6 6l12 12M18 6L6 18" />
                 </svg>
               </button>
-              <p className="display-bold pr-8 text-2xl">See what your budget buys</p>
+              <p className="display-bold pr-8 text-2xl">Request a call back</p>
               <p className="mb-6 mt-2 text-sm text-muted">
-                Tell us your budget and your plan. We call you back with real prices, in
-                pounds.
+                Name and number is all we need. An advisor calls you back with the
+                options that fit, real prices in pounds.
               </p>
               <LeadForm
                 formName="hero"
                 buttonLabel={ctaLabel}
-                budgetOptions={budgetOptions}
-                showPlan
+                showEmail={false}
+                showBudget={false}
+                showNote
               />
               <div className="mt-4">
                 <p className="mb-2 text-[0.78rem] text-muted">Prefer to talk now?</p>
