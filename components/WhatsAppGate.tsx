@@ -18,6 +18,41 @@ export type WhatsAppGateDetail = {
 const DEFAULT_MESSAGE =
   "I am looking at apartments for sale in Dubai and would like to see some options.";
 
+/**
+ * Byte-for-byte mirror of the LeadNudge widget's own track(), so the page CTAs
+ * land on exactly the GA4 event the floater already feeds: same event name,
+ * same page_location, and the same gtag-or-dataLayer fallback for a click that
+ * lands before the lazyOnload GA script has defined gtag.
+ *
+ * gtag and dataLayer are handled exclusively, never both. gtag pushes its own
+ * array-shaped entry to dataLayer, so firing both would risk double counting
+ * if GTM is ever added alongside gtag.
+ *
+ * form_id is the ONE deliberate difference: `raf-whatsapp-cta` rather than
+ * `leadnudge-whatsapp-widget`, so the two sources stay separable in GA4. A key
+ * event marked on the event NAME counts both. If the Google Ads conversion is
+ * ever rebuilt as a custom event with a form_id condition, it has to allow
+ * both values or this one stops counting.
+ */
+function trackWhatsAppStarted() {
+  const params: Record<string, string> = {
+    form_id: "raf-whatsapp-cta",
+    page_location: window.location.href,
+  };
+  const w = window as unknown as {
+    gtag?: (...a: unknown[]) => void;
+    dataLayer?: { push?: (o: unknown) => void };
+  };
+  try {
+    if (typeof w.gtag === "function") {
+      w.gtag("event", "WhatsApp_Started", params);
+    } else if (w.dataLayer && typeof w.dataLayer.push === "function") {
+      params.event = "WhatsApp_Started";
+      w.dataLayer.push(params);
+    }
+  } catch {}
+}
+
 /** Same shape check the LeadNudge widget uses, so we never post a lead it
     would treat as junk: 8 to 15 digits, phone punctuation only. */
 function looksLikePhone(v: string) {
@@ -40,9 +75,9 @@ function looksLikePhone(v: string) {
  *    API contract here to drift out of sync. `data-leadnudge` and the form id
  *    tag it as `whatsapp_cta`, separating it from the floater's
  *    `whatsapp_widget` in the CRM.
- *  - it fires the SAME `WhatsApp_Started` GA4 event name as the floater, so
- *    it lands on the key event / Google Ads conversion RAF already counts.
- *    No new Google Ads setup needed.
+ *  - it fires `WhatsApp_Started` through trackWhatsAppStarted below, which
+ *    mirrors the floater's own track() exactly apart from form_id, so it
+ *    lands on the key event / Google Ads conversion RAF already counts.
  *  - Meta gets a Lead event, which the floater does not send at all.
  *
  * Mount once per page. Every WhatsAppCta button opens this one instance.
@@ -113,13 +148,7 @@ export default function WhatsAppGate({ panelScope = "" }: { panelScope?: string 
       first_name: nameParts[0],
       last_name: nameParts.slice(1).join(" "),
     });
-    const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
-    if (typeof gtag === "function") {
-      gtag("event", "WhatsApp_Started", {
-        form_id: "raf-whatsapp-cta",
-        page_location: window.location.href,
-      });
-    }
+    trackWhatsAppStarted();
 
     const text = `Hi RAF, I'm ${name}. ${detail.message ?? DEFAULT_MESSAGE}`;
     const url = `${site.whatsapp}?text=${encodeURIComponent(text)}`;
