@@ -23,6 +23,10 @@ export default function GoogleTag() {
             var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
             if (!a) return;
             var href = a.getAttribute('href') || '';
+            // #leadnudge-whatsapp anchors open the LeadNudge widget panel, not
+            // a chat — the widget fires its own WhatsApp_Started on submit, so
+            // counting the panel-open here would inflate the Ads conversion.
+            if (href.indexOf('#leadnudge-whatsapp') !== -1) return;
             if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) {
               gtag('event', 'whatsapp_click', {
                 link_url: href.split('?')[0],
