@@ -42,7 +42,13 @@ export default function SiteFooter({ links, fxNote }: Props) {
             which it was calculated. {fxNote ?? site.fxNote}
           </p>
           <p className="mt-4 text-[0.8125rem] text-muted/70">
-            © {new Date().getFullYear()} RAF Real Estate. All rights reserved.
+            © {new Date().getFullYear()} RAF Real Estate. All rights reserved. ·{" "}
+            <a
+              href="/privacy-policy/"
+              className="transition-colors hover:text-gold-bright"
+            >
+              Privacy Policy
+            </a>
           </p>
         </div>
       </div>
