@@ -11,7 +11,6 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import StickyCta from "@/components/StickyCta";
 import WhatsAppCta from "@/components/WhatsAppCta";
-import WhatsAppGate from "@/components/WhatsAppGate";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -86,6 +85,11 @@ const priceTiers = [
   },
 ];
 
+/* Per the Google Ads landing page review (Sept 2026), size and price ranges
+   are surfaced prominently on each card so a size-specific searcher (studio,
+   1-bed, 2-bed) can spot their option at a glance. Figures from
+   raf-apartments-lp-copy-v2.md at £1 = AED 4.93; Sierra and Everly starting
+   prices are still awaiting confirmation from RAF, so those stay on-enquiry. */
 const projects = [
   {
     area: "Jumeirah Village Circle",
@@ -93,7 +97,14 @@ const projects = [
     dev: "IMAN Developers · 113 apartments · Completion Q2 2029",
     img: "/img/apt-113-900.webp",
     alt: "Bronze balconies of 113 Residences",
-    chips: ["1 and 2 bedroom apartments", "3BR and 4BR duplexes with private pools", "Prices confirmed on enquiry, in pounds"],
+    sizes: "1 to 4 bedroom apartments and duplexes",
+    pricing: [
+      { label: "1 bedroom", from: "£365,000" },
+      { label: "2 bedroom", from: "£520,000" },
+      { label: "3 bedroom", from: "£740,000" },
+      { label: "4BR duplex with private pool", from: "£1,103,000" },
+    ],
+    chips: [] as string[],
     payment: "20% on booking, staged instalments through construction, 50% on completion.",
     positioning:
       "Look at this one first if resale matters to you. JVC is the second most-traded apartment community in Dubai, so there is a real market to sell back into.",
@@ -104,7 +115,9 @@ const projects = [
     dev: "IMAN Developers · 593 apartments · 41 floors · Completion Q2 2029",
     img: "/img/apt-sierra-900.webp",
     alt: "Sierra's landscaped amenity deck with pools and courts",
-    chips: ["Studios to 4BR duplexes with private pools", "Prices confirmed on enquiry, in pounds"],
+    sizes: "Studios, 1 to 3 bedroom apartments, 4BR duplexes",
+    pricing: [] as { label: string; from: string }[],
+    chips: ["Studios: the lowest entry of our three projects", "4BR duplexes with private pools", "Prices confirmed on enquiry, in pounds"],
     payment: "20% on booking, staged instalments through construction, 40% on completion.",
     positioning:
       "Motor City is quieter and lower density than JVC, with wide boulevards and shaded parks. It suits a buyer who wants space over central bustle, and studios here are the smallest entry across our three projects.",
@@ -115,6 +128,8 @@ const projects = [
     dev: "Ellington · Boutique building beside the Meydan Horizon crystal lagoon",
     img: "/img/apt-everly-900.webp",
     alt: "Everly Place beside the Meydan Horizon lagoon at dusk",
+    sizes: "1 to 3 bedroom apartments, plus-study layouts",
+    pricing: [] as { label: string; from: string }[],
     chips: ["1BR to 3BR plus study", "Freehold", "Prices confirmed on enquiry, in pounds"],
     payment: "20% on booking, staged instalments, 30% on completion.",
     positioning:
@@ -180,16 +195,15 @@ const faq = [
 ];
 
 /* Both actions, always side by side and the same size. The call-back button
-   opens the modal form; the WhatsApp button opens the gate in WhatsAppGate,
-   which records the lead in LeadNudge before handing off to wa.me. */
+   opens the modal form; the WhatsApp button opens the LeadNudge WhatsApp
+   widget via its #leadnudge-whatsapp trigger, which records the lead before
+   handing off to wa.me. */
 function CtaPair({
   center = false,
   spacing = "mt-10",
-  source = "Section CTA",
 }: {
   center?: boolean;
   spacing?: string;
-  source?: string;
 }) {
   return (
     <div
@@ -201,10 +215,7 @@ function CtaPair({
         label={CTA}
         className="btn-gold !w-full !py-4 text-center !text-[0.8rem] sm:!w-auto sm:whitespace-nowrap sm:px-12"
       />
-      <WhatsAppCta
-        source={source}
-        className="!w-full !py-4 !text-[0.8rem] sm:!w-auto sm:whitespace-nowrap sm:!px-10"
-      />
+      <WhatsAppCta className="!w-full !py-4 !text-[0.8rem] sm:!w-auto sm:whitespace-nowrap sm:!px-10" />
     </div>
   );
 }
@@ -231,8 +242,6 @@ export default function Page() {
         }}
       />
       <StickyCta ctaLabel={CTA} modalEvent="raf:lead-modal-open" />
-      {/* One instance per page. Every WhatsAppCta button opens this. */}
-      <WhatsAppGate panelScope={`${inter.variable} font-inter theme-light`} />
 
       {/* ============ 1. HERO ============ */}
       <section className="section-dark relative flex min-h-[100svh] items-center overflow-hidden text-cream">
@@ -272,10 +281,7 @@ export default function Page() {
                 triggerClassName="btn-gold !w-full !py-5 text-center !text-[0.95rem] !font-bold !tracking-[0.12em] sm:!w-auto sm:px-12"
                 panelScope={`${inter.variable} font-inter theme-light`}
               />
-              <WhatsAppCta
-                source="Hero"
-                className="!w-full !py-5 !text-[0.95rem] !font-bold !tracking-[0.12em] sm:!w-auto sm:!px-12"
-              />
+              <WhatsAppCta className="!w-full !py-5 !text-[0.95rem] !font-bold !tracking-[0.12em] sm:!w-auto sm:!px-12" />
             </div>
           </Reveal>
         </div>
@@ -294,6 +300,40 @@ export default function Page() {
             </p>
           </Reveal>
         </div>
+      </section>
+
+      {/* ============ WHICH SIZE ============ */}
+      {/* Moved directly under the market statement (Sept 2026 ads review):
+          it answers the size-specific searches behind the Apartments & Flats
+          ad group (studio, 1-bed, 2-bed), so it must not sit below the fold
+          of the argument. */}
+      <section className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-28">
+        <Reveal>
+          <p className="kicker">Matching the unit to the plan</p>
+          <h2 className="display-bold mt-4 max-w-3xl text-4xl sm:text-5xl lg:text-6xl">
+            One, two or three bedroom, which to buy
+          </h2>
+          <p className="mt-6 max-w-2xl text-muted">
+            Whether you call it an apartment or a flat, the right size depends on whether
+            you are optimising for yield, for capital growth, or for your own use.
+          </p>
+        </Reveal>
+        <div className="mt-12 grid gap-px overflow-hidden border border-line bg-line lg:grid-cols-3">
+          {sizes.map((c, i) => (
+            <Reveal key={c.head} delay={i * 0.07} className="bg-panel p-8">
+              <h3 className="display-bold text-xl text-cream">{c.head}</h3>
+              <p className="mt-3 text-[0.92rem] text-muted">{c.body}</p>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.1}>
+          <p className="mt-8 max-w-3xl text-muted">
+            If the plan is income, weight toward 1 and 2 bedroom apartments. If the plan is
+            long-term growth, larger units in prime areas do more work. Tell us the plan on
+            the call and we will match the unit to it.
+          </p>
+          <CtaButton />
+        </Reveal>
       </section>
 
       {/* ============ WHY BUY IN DUBAI + VIDEO ============ */}
@@ -667,16 +707,34 @@ export default function Page() {
                     <p className="mt-2 text-[0.8125rem] uppercase tracking-[0.18em] text-muted">
                       {p.dev}
                     </p>
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {p.chips.map((chip) => (
-                        <span
-                          key={chip}
-                          className="border border-line-gold/60 px-3 py-1.5 text-[0.85rem] text-cream"
-                        >
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
+                    <p className="mt-5 text-[1.02rem] font-semibold text-cream">{p.sizes}</p>
+                    {p.pricing.length > 0 && (
+                      /* Emphasised-figure rows: size left, from-price right and
+                         bold, so a studio/1-bed searcher spots their band at a
+                         glance. 700 weight is reserved for the price figures. */
+                      <div className="mt-4 divide-y divide-line border-y border-line">
+                        {p.pricing.map((row) => (
+                          <div key={row.label} className="flex items-baseline justify-between gap-4 py-2.5">
+                            <span className="text-[0.92rem] text-muted">{row.label}</span>
+                            <span className="whitespace-nowrap text-[0.98rem] text-cream">
+                              from <span className="price font-bold">{row.from}</span>
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {p.chips.length > 0 && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {p.chips.map((chip) => (
+                          <span
+                            key={chip}
+                            className="border border-line-gold/60 px-3 py-1.5 text-[0.85rem] text-cream"
+                          >
+                            {chip}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <p className="mt-5 text-[0.9rem] text-muted">{p.payment}</p>
                     <p className="mt-4 text-[0.95rem] text-cream/90">{p.positioning}</p>
                     <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -686,8 +744,6 @@ export default function Page() {
                       />
                       <WhatsAppCta
                         label="Ask on WhatsApp"
-                        message={`I would like more details on ${p.name} in ${p.area}.`}
-                        source={p.name}
                         className="!w-full !py-3.5 !text-[0.78rem] sm:!w-auto sm:!px-8"
                       />
                     </div>
@@ -699,36 +755,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============ 7. WHICH SIZE ============ */}
-      <section className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-28">
-        <Reveal>
-          <p className="kicker">Matching the unit to the plan</p>
-          <h2 className="display-bold mt-4 max-w-3xl text-4xl sm:text-5xl lg:text-6xl">
-            One, two or three bedroom, which to buy
-          </h2>
-          <p className="mt-6 max-w-2xl text-muted">
-            Whether you call it an apartment or a flat, the right size depends on whether
-            you are optimising for yield, for capital growth, or for your own use.
-          </p>
-        </Reveal>
-        <div className="mt-12 grid gap-px overflow-hidden border border-line bg-line lg:grid-cols-3">
-          {sizes.map((c, i) => (
-            <Reveal key={c.head} delay={i * 0.07} className="bg-panel p-8">
-              <h3 className="display-bold text-xl text-cream">{c.head}</h3>
-              <p className="mt-3 text-[0.92rem] text-muted">{c.body}</p>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.1}>
-          <p className="mt-8 max-w-3xl text-muted">
-            If the plan is income, weight toward 1 and 2 bedroom apartments. If the plan is
-            long-term growth, larger units in prime areas do more work. Tell us the plan on
-            the call and we will match the unit to it.
-          </p>
-        </Reveal>
-      </section>
-
-      {/* ============ 8. PORTFOLIO ============ */}
+      {/* ============ 7. PORTFOLIO ============ */}
       <section className="border-y border-line bg-ink-2">
         <div className="mx-auto max-w-6xl px-6 py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
@@ -856,7 +883,7 @@ export default function Page() {
               Prefer to message? WhatsApp us instead and we will pick it up from there.
             </p>
             <div className="mt-6 max-w-sm">
-              <WhatsAppCta source="Closing section" className="!py-4 !text-[0.8rem]" />
+              <WhatsAppCta className="!py-4 !text-[0.8rem]" />
             </div>
           </Reveal>
           <Reveal delay={0.12}>
